@@ -10,5 +10,14 @@
   @apply text-[1rem] capitalize font-poppins font-medium;
 }
 
+.btn {
+  @apply px-4 py-2 rounded font-semibold text-white;
+}
+
+.box-1 {
+  @apply flex items-center justify-between p-3 w-full;
+}
+
+
 
 
