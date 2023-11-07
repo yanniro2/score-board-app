@@ -3,6 +3,7 @@ import React from "react";
 import RadioGroup from "./RadioGroup";
 import { BiGrid, BiFullscreen, BiLayout } from "react-icons/bi";
 import { LuPanelBottom } from "react-icons/lu";
+import ButtonCheck from "./ButtonCheck";
 
 const AdvertismentDashboard = () => {
   const options = [
@@ -37,6 +38,8 @@ const AdvertismentDashboard = () => {
           heading={option.heading}
         />
       ))}
+
+      <ButtonCheck />
     </div>
   );
 };
