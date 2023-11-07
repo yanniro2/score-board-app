@@ -4,7 +4,7 @@ import Score from "../../components/Score";
 
 export default function Home() {
   return (
-    <section className="w-screen h-screen flex flex-col items-center gap-[1rem] bg-gray-950">
+    <section className="w-screen h-screen flex flex-col items-center gap-[1rem] ">
       <Score />
       <Details />
       <Banner />
