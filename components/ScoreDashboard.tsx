@@ -1,12 +1,62 @@
-import React from "react";
+"use client";
+import { useEffect, useState } from "react";
 
 const ScoreDashboard = () => {
+  const [isWindowOpen, setIsWindowOpen] = useState(false);
+  let myWindow: Window | null = null; // Declare myWindow variable with Window type and null initialization
+  const openFullScreenWindow = () => {
+    if (window) {
+      const width = window.screen.width;
+      const height = window.screen.height;
+      const features =
+        "width=" +
+        width +
+        ",height=" +
+        height +
+        ",fullscreen=yes,menubar=no,toolbar=no,location=no,personalbar=no,status=no,scrollbars=no,resizable=no";
+      var myWindow = window.open("/", "_blank", features);
+      if (myWindow) {
+        setIsWindowOpen(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (window) {
+      // Your code that involves the window object
+    }
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isWindowOpen && myWindow && myWindow.closed) {
+        setIsWindowOpen(false);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isWindowOpen, openFullScreenWindow]);
+
   return (
     <div className="w-1/2 h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem]">
       <div className="flex items-center gap-[1rem] justify-center">
-        <button className="btn bg-blue-400 ">Live</button>
+        {isWindowOpen ? (
+          <button className="btn bg-blue-400 capitalize ">Pause</button>
+        ) : (
+          <button
+            className="btn bg-blue-400 capitalize "
+            onClick={openFullScreenWindow}>
+            Live
+          </button>
+        )}
 
-        <button className="btn bg-red-400 ">Stop</button>
+        {isWindowOpen && (
+          <button
+            className="btn bg-red-400"
+            onClick={() => setIsWindowOpen(false)}>
+            Stop
+          </button>
+        )}
 
         <button className="btn bg-green-400 ">Save</button>
       </div>
@@ -119,7 +169,7 @@ const ScoreDashboard = () => {
             type="number"
             name="duration"
             id="duration"
-            placeholder="duration"
+            placeholder="extra time duration"
             className="p-3 rounded-xl capitalize text-black text-center"
           />
         </div>
