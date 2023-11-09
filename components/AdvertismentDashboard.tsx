@@ -39,7 +39,7 @@ const AdvertismentDashboard = () => {
         />
       ))}
 
-      <ButtonCheck />
+      {/* <ButtonCheck /> */}
     </div>
   );
 };
