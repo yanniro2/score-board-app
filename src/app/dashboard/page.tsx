@@ -7,7 +7,6 @@ const page = () => {
     <section className="w-screen h-screen p-5 text-center flex items-start justify-start gap-[2rem]">
       <ScoreDashboard />
       <AdvertismentDashboard />
-      
     </section>
   );
 };

@@ -18,6 +18,10 @@
   @apply flex items-center justify-between p-3 w-full;
 }
 
+.input {
+  @apply p-3 rounded-xl capitalize text-black text-center;
+}
+
 
 
 
