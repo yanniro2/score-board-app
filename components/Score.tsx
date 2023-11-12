@@ -10,7 +10,7 @@ const Page = async () => {
   const data = await res.json();
 
   return (
-    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 bg-gray-700 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col">
+    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col">
       {data ? (
         <div className="w-full h-full">
           <div className="w-1/2 h-1/4 mx-auto flex items-center justify-evenly ">
