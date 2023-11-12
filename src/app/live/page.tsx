@@ -1,3 +1,4 @@
+"use server";
 import Banner from "../../../components/Banner";
 import Details from "../../../components/Details";
 import Score from "../../../components/Score";

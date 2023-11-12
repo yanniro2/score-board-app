@@ -74,7 +74,7 @@ export default function ScoreDashboard() {
   };
 
   return (
-    <div className="w-1/2 h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem]">
+    <div className="md:w-1/2 h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem]">
       <Popup />
 
       <div className="box-1 p-3 bg-gray-800">
