@@ -28,6 +28,7 @@ interface MatchData {
 const Page = async () => {
   const res = await fetch("https://score-demo.yalpos.com/api/score/1", {
     next: { revalidate: 10 },
+    cache: "no-cache",
   });
 
   const data: [MatchData] = await res.json();

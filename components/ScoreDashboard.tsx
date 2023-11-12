@@ -76,6 +76,57 @@ export default function ScoreDashboard() {
   return (
     <div className="md:w-1/2 h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem]">
       <Popup />
+      <div className="box-1 p-3 bg-gray-800">
+        <input
+          type="number"
+          name="team_one_try"
+          id="team_one_try"
+          // value={formData.team_one_try}
+          placeholder="try team a"
+          onChange={handleChange}
+          className="p-3 rounded-xl capitalize text-black text-center"
+        />
+
+        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+          try
+        </h2>
+
+        <input
+          type="number"
+          name="team_two_try"
+          id="team_two_try"
+          // value={formData.team_two_try}
+          placeholder="try team b"
+          onChange={handleChange}
+          className="p-3 rounded-xl capitalize text-black text-center"
+        />
+      </div>
+
+      <div className="box-1 p-3 bg-gray-800">
+        <input
+          type="number"
+          name="team_one_conversion"
+          id="team_one_conversion"
+          // value={formData.team_one_conversion}
+          placeholder="conversion team a"
+          onChange={handleChange}
+          className="p-3 rounded-xl capitalize text-black text-center"
+        />
+
+        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+          conversion
+        </h2>
+
+        <input
+          type="number"
+          name="team_two_conversion"
+          id="team_two_conversion"
+          // value={formData.team_two_conversion}
+          placeholder="conversion team b"
+          onChange={handleChange}
+          className="p-3 rounded-xl capitalize text-black text-center"
+        />
+      </div>
 
       <div className="box-1 p-3 bg-gray-800">
         <input
@@ -102,56 +153,7 @@ export default function ScoreDashboard() {
           className="p-3 rounded-xl capitalize text-black text-center"
         />
       </div>
-      <div className="box-1 p-3 bg-gray-800">
-        <input
-          type="number"
-          name="team_one_try"
-          id="team_one_try"
-          // value={formData.team_one_try}
-          placeholder="try team a"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
 
-        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
-          try
-        </h2>
-
-        <input
-          type="number"
-          name="team_two_try"
-          id="team_two_try"
-          // value={formData.team_two_try}
-          placeholder="try team b"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-      </div>
-      <div className="box-1 p-3 bg-gray-800">
-        <input
-          type="number"
-          name="team_one_conversion"
-          id="team_one_conversion"
-          // value={formData.team_one_conversion}
-          placeholder="conversion team a"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-
-        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
-          conversion
-        </h2>
-
-        <input
-          type="number"
-          name="team_two_conversion"
-          id="team_two_conversion"
-          // value={formData.team_two_conversion}
-          placeholder="conversion team b"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-      </div>
       <div className="box-1 p-3 bg-gray-800">
         <input
           type="number"
@@ -172,7 +174,7 @@ export default function ScoreDashboard() {
           name="team_two_goal"
           id="team_two_goal"
           // value={formData.team_two_goal}
-          placeholder="try team b"
+          placeholder="drop goal team b"
           onChange={handleChange}
           className="p-3 rounded-xl capitalize text-black text-center"
         />
