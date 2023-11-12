@@ -1,8 +1,7 @@
-"use server";
 import Image from "next/image";
 import Team from "./Team";
 import Clock from "./Clock";
-
+export const revalidate = true;
 const Page = async () => {
   const res = await fetch("https://score-demo.yalpos.com/api/match/1", {
     next: { revalidate: 1 },

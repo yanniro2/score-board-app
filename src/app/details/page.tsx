@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import SubPoints from "./SubPoints";
+import SubPoints from "../../../components/SubPoints";
 
 export const revalidate = true;
 

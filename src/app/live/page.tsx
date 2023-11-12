@@ -1,8 +1,8 @@
-"use server";
 import Banner from "../../../components/Banner";
 import Details from "../../../components/Details";
 import Score from "../../../components/Score";
 
+export const revalidate = true;
 interface MatchData {
   success: boolean;
   result: string;
@@ -27,8 +27,7 @@ interface MatchData {
 
 const Page = async () => {
   const res = await fetch("https://score-demo.yalpos.com/api/score/1", {
-    next: { revalidate: 10 },
-    cache: "no-cache",
+    next: { revalidate: 1 },
   });
 
   const data: [MatchData] = await res.json();

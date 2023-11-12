@@ -3,6 +3,7 @@ import { useState, ChangeEvent, useEffect } from "react";
 import Popup from "./Popup";
 import { GrUpdate } from "react-icons/gr";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 type FormData = {
   match_id: string;
@@ -20,6 +21,7 @@ type FormData = {
   [key: string]: string; // Index signature allowing any other string properties
 };
 
+export const revalidate = true;
 export default function ScoreDashboard() {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
@@ -58,12 +60,13 @@ export default function ScoreDashboard() {
       const response = await fetch("https://score-demo.yalpos.com/api/score", {
         method: "POST",
         body: formDataObj,
-        next: { revalidate: 10 },
+        next: { revalidate: 1 },
       });
 
       const data = await response.json();
       setApiResponse(JSON.stringify(data));
       if (response.ok) {
+        // revalidatePath("/live");
         window.location.reload();
       } else {
         throw new Error("Failed to create a topic");
@@ -76,116 +79,119 @@ export default function ScoreDashboard() {
   return (
     <div className="md:w-1/2 h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem]">
       <Popup />
-      <div className="box-1 p-3 bg-gray-800">
-        <input
-          type="number"
-          name="team_one_try"
-          id="team_one_try"
-          // value={formData.team_one_try}
-          placeholder="try team a"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
 
-        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
-          try
-        </h2>
+      <form action={handleSubmit}>
+        <div className="box-1 p-3 bg-gray-800">
+          <input
+            type="number"
+            name="team_one_try"
+            id="team_one_try"
+            // value={formData.team_one_try}
+            placeholder="try team a"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
 
-        <input
-          type="number"
-          name="team_two_try"
-          id="team_two_try"
-          // value={formData.team_two_try}
-          placeholder="try team b"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-      </div>
+          <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+            try
+          </h2>
 
-      <div className="box-1 p-3 bg-gray-800">
-        <input
-          type="number"
-          name="team_one_conversion"
-          id="team_one_conversion"
-          // value={formData.team_one_conversion}
-          placeholder="conversion team a"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
+          <input
+            type="number"
+            name="team_two_try"
+            id="team_two_try"
+            // value={formData.team_two_try}
+            placeholder="try team b"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
+        </div>
 
-        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
-          conversion
-        </h2>
+        <div className="box-1 p-3 bg-gray-800">
+          <input
+            type="number"
+            name="team_one_conversion"
+            id="team_one_conversion"
+            // value={formData.team_one_conversion}
+            placeholder="conversion team a"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
 
-        <input
-          type="number"
-          name="team_two_conversion"
-          id="team_two_conversion"
-          // value={formData.team_two_conversion}
-          placeholder="conversion team b"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-      </div>
+          <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+            conversion
+          </h2>
 
-      <div className="box-1 p-3 bg-gray-800">
-        <input
-          type="number"
-          name="team_one_penalty"
-          id="team_one_penalty"
-          // value={formData.team_one_penalty}
-          placeholder="team a penalty"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
+          <input
+            type="number"
+            name="team_two_conversion"
+            id="team_two_conversion"
+            // value={formData.team_two_conversion}
+            placeholder="conversion team b"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
+        </div>
 
-        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
-          penalty
-        </h2>
+        <div className="box-1 p-3 bg-gray-800">
+          <input
+            type="number"
+            name="team_one_penalty"
+            id="team_one_penalty"
+            // value={formData.team_one_penalty}
+            placeholder="team a penalty"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
 
-        <input
-          type="number"
-          name="team_two_penalty"
-          id="team_two_penalty"
-          // value={formData.team_two_penalty}
-          placeholder="team b penalty"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-      </div>
+          <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+            penalty
+          </h2>
 
-      <div className="box-1 p-3 bg-gray-800">
-        <input
-          type="number"
-          name="team_one_goal"
-          id="team_one_goal"
-          // value={formData.team_one_goal}
-          placeholder="drop goal team a"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
+          <input
+            type="number"
+            name="team_two_penalty"
+            id="team_two_penalty"
+            // value={formData.team_two_penalty}
+            placeholder="team b penalty"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
+        </div>
 
-        <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
-          drop goal
-        </h2>
+        <div className="box-1 p-3 bg-gray-800">
+          <input
+            type="number"
+            name="team_one_goal"
+            id="team_one_goal"
+            // value={formData.team_one_goal}
+            placeholder="drop goal team a"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
 
-        <input
-          type="number"
-          name="team_two_goal"
-          id="team_two_goal"
-          // value={formData.team_two_goal}
-          placeholder="drop goal team b"
-          onChange={handleChange}
-          className="p-3 rounded-xl capitalize text-black text-center"
-        />
-      </div>
+          <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+            drop goal
+          </h2>
 
-      <button
-        className="btn bg-white text-black capitalize flex items-center gap-[1rem] justify-center text-center mx-auto "
-        onClick={handleSubmit}>
-        <GrUpdate />
-        Update
-      </button>
+          <input
+            type="number"
+            name="team_two_goal"
+            id="team_two_goal"
+            // value={formData.team_two_goal}
+            placeholder="drop goal team b"
+            onChange={handleChange}
+            className="p-3 rounded-xl capitalize text-black text-center"
+          />
+        </div>
+
+        <button
+          className="btn bg-white text-black capitalize flex items-center gap-[1rem] justify-center text-center mx-auto "
+          type="submit">
+          <GrUpdate />
+          Update
+        </button>
+      </form>
     </div>
   );
 }
