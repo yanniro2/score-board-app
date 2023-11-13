@@ -13,7 +13,7 @@ const Page = () => {
       const data = await res.json();
       setResponseData(data);
       // console.log(data.success.match.trophy_image_url);
-      console.log(data.success.match.trophy_image_url);
+      // console.log(data.success.match.trophy_image_url);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -47,8 +47,8 @@ const Page = () => {
             {responseData.success.match.trophy_image_url ? (
               <Image
                 src={responseData.success.match.trophy_image_url}
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt="img flag"
                 className="object-contain h-full w-auto"
                 priority={true}
@@ -56,8 +56,8 @@ const Page = () => {
             ) : (
               <Image
                 src="/assets/trophy.png"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt="img flag"
                 className="object-contain h-full w-auto"
                 priority={true}
@@ -70,8 +70,8 @@ const Page = () => {
             {responseData.success.match.trophy_image_url ? (
               <Image
                 src={responseData.success.match.trophy_image_url}
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt="img flag"
                 className="object-contain h-full w-auto"
                 priority={true}
@@ -79,8 +79,8 @@ const Page = () => {
             ) : (
               <Image
                 src="/assets/trophy.png"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt="img flag"
                 className="object-contain h-full w-auto"
                 priority
@@ -104,9 +104,14 @@ const Page = () => {
                   3
                 </div>
               </div>
-              <div className="text-lg bg-gray-800 drop-shadow md:px-4 md:py-1 w-min rounded-full border border-gray-900 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] ">
+              <div className="text-lg bg-gray-500 drop-shadow px-4 py-2 w-min rounded-full border border-gray-900 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] ">
                 {/* {data.duration} */}
-                <Clock time={responseData.success.match.duration} />
+                <Clock time={responseData.success.match.match_duration} />
+              </div>
+
+              <div className="bg-white uppercase font-semibold text-black flex items-center justify-center gap-[1rem] rounded-lg overflow-hidden 2xl:text-[4rem]">
+                <div className="p-3">vs</div>
+                <div className="bg-blue-500  p-3 text-white ">Change</div>
               </div>
             </div>
 

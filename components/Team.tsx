@@ -3,7 +3,7 @@ import Image from "next/image";
 const Team = ({ teamName, teamLogo }: any) => {
   // const imageUrl = teamLogo ? teamLogo : ;
   return (
-    <div className="flex items-center justify-center flex-col gap-[1rem] w-full">
+    <div className="flex items-center justify-center flex-col gap-[1rem] w-full md:gap-5">
       {teamLogo ? (
         <Image
           src={teamLogo} // Add a leading slash to the relative path

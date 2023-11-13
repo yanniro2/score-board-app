@@ -4,7 +4,7 @@ import AdvertismentDashboard from "../../../components/AdvertismentDashboard";
 
 const page = () => {
   return (
-    <section className="w-screen h-screen p-5 text-center flex items-start justify-start gap-[2rem] md:flex-row flex-col">
+    <section className="w-screen h-screen p-5 text-center flex items-start justify-start gap-[2rem] md:flex-row flex-col ">
       <ScoreDashboard />
       {/* <AdvertismentDashboard /> */}
     </section>

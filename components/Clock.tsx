@@ -38,7 +38,7 @@ const Clock: React.FC<ClockProps> = ({ time }) => {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
-  return <>{remainingTime}</>;
+  return <div>{remainingTime}</div>;
 };
 
 export default Clock;
