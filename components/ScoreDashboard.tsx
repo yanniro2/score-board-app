@@ -18,7 +18,10 @@ type FormData = {
   team_one_goal: string;
   team_two_goal: string;
   [key: string]: string;
-  layout: string; // Index signature allowing any other string properties
+  layout: string;
+  is_change: string;
+  is_live: string;
+  // Index signature allowing any other string properties
 };
 
 export const revalidate = true;
@@ -37,6 +40,8 @@ export default function ScoreDashboard() {
     team_one_goal: "",
     team_two_goal: "",
     layout: "",
+    is_change: "v",
+    is_live: "false",
   });
 
   const [apiResponse, setApiResponse] = useState<string | null>(null);
@@ -76,39 +81,12 @@ export default function ScoreDashboard() {
     }
   };
 
-  const handleSubmit_radio = async () => {
-    const formDataObj = new FormData();
-
-    for (const key in formData) {
-      formDataObj.append(key, formData[key]);
-    }
-
-    try {
-      const response = await fetch("https://score-demo.yalpos.com/api/score", {
-        method: "POST",
-        body: formDataObj,
-        next: { revalidate: 1 },
-      });
-
-      const data = await response.json();
-      setApiResponse(JSON.stringify(data));
-      if (response.ok) {
-        // revalidatePath("/live");
-        window.location.reload();
-      } else {
-        throw new Error("Failed to create a topic");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
-    <div className="md:w-1/2 h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full">
+    <div className="md:w-full h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full">
       <Popup />
 
-      <form action={handleSubmit} className="flex flex-col gap-[1rem]">
-        <div className="box-1 p-3 bg-gray-800">
+      <form action={handleSubmit} className="flex flex-col gap-[1rem] w-full">
+        <div className="box-1 p-3 bg-gray-800 w-full">
           <input
             type="number"
             name="team_one_try"
@@ -229,36 +207,6 @@ export default function ScoreDashboard() {
           type="submit">
           <GrUpdate />
           Update
-        </button>
-      </form>
-
-      <form action="handleSubmit_radio" className="flex flex-col">
-        <div className="flex gap-[1rem]">
-          <input type="radio" name="layout" id="layoutOne" value="layoutOne" />
-          <label htmlFor="layoutOne">Layout One</label>
-
-          <input type="radio" name="layout" id="layoutTwo" value="layoutTwo" />
-          <label htmlFor="layoutTwo">Layout Two</label>
-
-          <input
-            type="radio"
-            name="layout"
-            id="layoutThree"
-            value="layoutThree"
-          />
-          <label htmlFor="layoutThree">Layout Three</label>
-
-          <input
-            type="radio"
-            name="layout"
-            id="layoutFour"
-            value="layoutFour"
-          />
-          <label htmlFor="layoutFour">Layout Four</label>
-        </div>
-
-        <button type="submit" className="btn bg-amber-400">
-          Change
         </button>
       </form>
     </div>
