@@ -38,7 +38,7 @@ export default function Page() {
   }
 
   return (
-    <div className="container h-[50vh] mx-auto bg-gray-900 rounded-xl p-5 text-white text-center">
+    <div className="container h-[50vh] mx-auto 2xl:text-[3rem] rounded-xl p-5 text-white text-center">
       {/* ... rest of your component code ... */}
       <div className="flex flex-col gap-[1rem]">
         <SubPoints

@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
+  experimental: {},
   images: {
-    domains: ["score-demo.yalpos.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "score-demo.yalpos.com",
+        port: "",
+        pathname: "/storage/*/**",
+      },
+    ],
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

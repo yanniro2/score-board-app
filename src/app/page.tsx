@@ -1,57 +1,52 @@
-"use client";
-import { useEffect, useState } from "react";
-import { revalidatePath } from "next/cache";
 import Banner from "../../components/Banner";
 import Details from "../../components/Details";
 import Score from "../../components/Score";
 
-export interface Match {
-  id?: number;
-  teamA: string;
-  teamB: string;
-  duration: string;
+export const revalidate = true;
+interface MatchData {
+  success: boolean;
+  result: string;
+  data: {
+    id: number;
+    match_id: number;
+    additional_duration: string;
+    team_one_total: string;
+    team_two_total: string;
+    team_one_try: string;
+    team_two_try: string;
+    team_one_conversion: string;
+    team_two_conversion: string;
+    team_one_penalty: string;
+    team_two_penalty: string;
+    team_one_goal: string;
+    team_two_goal: string;
+    created_at: string;
+    updated_at: string;
+  };
 }
 
-export default function Home() {
-  const [matchs, setMatchs] = useState<Match[]>([]);
+const Page = async () => {
+  const res = await fetch("https://score-demo.yalpos.com/api/score/1", {
+    next: { revalidate: 1 },
+  });
 
-  useEffect(() => {
-    const fetchMatchs = async () => {
-      try {
-        const res = await fetch(
-          "https://654c523b77200d6ba858ba96.mockapi.io/api/v1/match",
-          {
-            cache: "no-cache",
-            next: {
-              tags: ["match"],
-            },
-          }
-        );
-
-        const data: Match[] = await res.json();
-        setMatchs(data);
-        revalidatePath("/");
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-
-    fetchMatchs();
-  }, []);
+  const data: [MatchData] = await res.json();
 
   return (
-    <section className="w-screen h-screen flex flex-col items-center gap-[1rem] text-white ">
-      {matchs.length > 0 ? (
+    <div className="text-white">
+      {!data ? (
+        <div className="w-screen h-screen flex items-center justify-center text-4xl text-white ">
+          Match Loading...
+        </div>
+      ) : (
         <>
           <Score />
           <Details />
           <Banner />
         </>
-      ) : (
-        <h1 className="text-4xl text-center text-white">
-          Match has not started yet
-        </h1>
       )}
-    </section>
+    </div>
   );
-}
+};
+
+export default Page;

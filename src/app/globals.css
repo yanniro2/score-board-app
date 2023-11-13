@@ -7,7 +7,7 @@
 
 
 .h2 {
-  @apply text-[1rem] capitalize font-poppins font-medium;
+  @apply text-[1rem] capitalize font-poppins font-medium 2xl:text-[3rem];
 }
 
 .btn {
@@ -20,6 +20,10 @@
 
 .input {
   @apply p-3 rounded-xl capitalize text-black text-center;
+}
+
+.box-1:nth-child(odd) {
+  @apply bg-gray-900; 
 }
 
 

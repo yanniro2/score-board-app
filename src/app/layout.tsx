@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="w-full h-full bg-gray-950 text-white">
+      <body className="w-full h-full bg-gray-950 text-white 2xl:text-[4rem]">
         <RadioProvider>{children}</RadioProvider>
       </body>
     </html>
