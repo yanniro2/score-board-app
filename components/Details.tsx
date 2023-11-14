@@ -39,7 +39,22 @@ export default function Page() {
 
   return (
     <div className="container h-[50vh] mx-auto 2xl:text-[3rem] rounded-xl p-5 text-white text-center pt-[4rem]">
-      {/* ... rest of your component code ... */}
+      <div className="bg-white uppercase font-semibold text-white flex items-center justify-center  rounded-lg overflow-hidden 2xl:text-[4rem] w-min mx-auto">
+        {responseData.data.is_change === "c" ? (
+          <div className="flex items-center justify-center mx-auto">
+            <div className="p-1 bg-gray-500">vs</div>
+
+            <div className="p-1 bg-blue-500">Change</div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center">
+            <div className="p-1 bg-blue-500">vs</div>
+
+            <div className="p-1 bg-gray-500">Change</div>
+          </div>
+        )}
+      </div>
+
       <div className="flex flex-col">
         <SubPoints
           teamA={responseData?.data.team_one_try}

@@ -1,42 +1,46 @@
+"use client";
+import { useState, useEffect } from "react";
 import Banner from "../../components/Banner";
 import Details from "../../components/Details";
 import Score from "../../components/Score";
 
-export const revalidate = true;
-interface MatchData {
-  success: boolean;
-  result: string;
-  data: {
-    id: number;
-    match_id: number;
-    additional_duration: string;
-    team_one_total: string;
-    team_two_total: string;
-    team_one_try: string;
-    team_two_try: string;
-    team_one_conversion: string;
-    team_two_conversion: string;
-    team_one_penalty: string;
-    team_two_penalty: string;
-    team_one_goal: string;
-    team_two_goal: string;
-    created_at: string;
-    updated_at: string;
+const Page = () => {
+  const [responseData, setResponseData] = useState<any>(null);
+
+  const fetchData = async () => {
+    try {
+      const res = await fetch("https://score-demo.yalpos.com/api/score/1");
+      const data = await res.json();
+      setResponseData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
-}
 
-const Page = async () => {
-  const res = await fetch("https://score-demo.yalpos.com/api/score/1", {
-    next: { revalidate: 1 },
-  });
+  useEffect(() => {
+    const loadData = async () => {
+      await fetchData();
+    };
 
-  const data: [MatchData] = await res.json();
+    // Load data initially
+    loadData();
 
+    // Set up interval for automatic reload every 1 second
+    const intervalId = setInterval(loadData, 1000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
+  if (!responseData || !responseData.data) {
+    // Add loading state if data is not yet available
+    return <div>Loading...</div>;
+  }
   return (
     <div className="text-white">
-      {!data ? (
+      {responseData.data.is_live === "false" ? (
         <div className="w-screen h-screen flex items-center justify-center text-4xl text-white ">
-          Match Loading...
+          Match will be start at soon
         </div>
       ) : (
         <>

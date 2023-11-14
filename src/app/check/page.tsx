@@ -15,7 +15,10 @@ type FormData = {
   team_two_penalty: string;
   team_one_goal: string;
   team_two_goal: string;
-  [key: string]: string; // Index signature allowing any other string properties
+  [key: string]: string;
+  is_live: string;
+  is_change: string;
+  // Index signature allowing any other string properties
 };
 
 const YourComponent = () => {
@@ -32,6 +35,8 @@ const YourComponent = () => {
     team_two_penalty: "0",
     team_one_goal: "5",
     team_two_goal: "0",
+    is_live: "false", // "true" or "false"
+    is_change: "c",
   });
 
   const [apiResponse, setApiResponse] = useState<string | null>(null);
@@ -69,8 +74,8 @@ const YourComponent = () => {
       {/* Input fields */}
       <input
         type="text"
-        name="team_one_penalty"
-        value={formData.team_one_penalty}
+        name="is_live"
+        value={formData.is_live}
         onChange={handleChange}
         className="text-blue-900"
       />

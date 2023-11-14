@@ -104,14 +104,9 @@ const Page = () => {
                   3
                 </div>
               </div>
-              <div className="text-lg bg-gray-500 drop-shadow px-4 py-2 w-min rounded-full border border-gray-900 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] ">
+              <div className="text-lg  drop-shadow px-4 py-2 w-min rounded-full border border-gray-900 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] ">
                 {/* {data.duration} */}
                 <Clock time={responseData.success.match.match_duration} />
-              </div>
-
-              <div className="bg-white uppercase font-semibold text-black flex items-center justify-center  rounded-lg overflow-hidden 2xl:text-[4rem]">
-                <div className="p-1 ">vs</div>
-                <div className="bg-blue-500  p-1 text-white ">Change</div>
               </div>
             </div>
 
