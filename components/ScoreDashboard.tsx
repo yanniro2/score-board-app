@@ -2,7 +2,7 @@
 import { useState, ChangeEvent } from "react";
 import Popup from "./Popup";
 import { GrUpdate } from "react-icons/gr";
-
+import VsChange from "./VsChange";
 
 type FormData = {
   match_id: string;
@@ -80,7 +80,7 @@ export default function ScoreDashboard() {
   return (
     <div className="md:w-full h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full">
       <Popup />
-
+      <VsChange />
       <form action={handleSubmit} className="flex flex-col gap-[1rem] w-full">
         <div className="box-1 p-3 bg-gray-800 w-full">
           <input
