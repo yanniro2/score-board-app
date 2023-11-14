@@ -2,7 +2,7 @@
 import { useState, ChangeEvent } from "react";
 import Popup from "./Popup";
 import { GrUpdate } from "react-icons/gr";
-import { useRouter } from "next/navigation";
+
 
 type FormData = {
   match_id: string;
@@ -39,7 +39,7 @@ export default function ScoreDashboard() {
     team_two_penalty: "",
     team_one_goal: "",
     team_two_goal: "",
-    layout: "",
+    layout: "layout1",
     is_change: "v",
     is_live: "false",
   });
@@ -69,9 +69,11 @@ export default function ScoreDashboard() {
       });
 
       const data = await response.json();
+      console.log("Response data:", data); // Log the response data
+
       setApiResponse(JSON.stringify(data));
+
       if (response.ok) {
-        // revalidatePath("/live");
         window.location.reload();
       } else {
         throw new Error("Failed to create a topic");
@@ -79,6 +81,14 @@ export default function ScoreDashboard() {
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const handleLayoutChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      layout: value,
+    }));
   };
 
   return (

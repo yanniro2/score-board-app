@@ -109,9 +109,9 @@ const Page = () => {
                 <Clock time={responseData.success.match.match_duration} />
               </div>
 
-              <div className="bg-white uppercase font-semibold text-black flex items-center justify-center gap-[1rem] rounded-lg overflow-hidden 2xl:text-[4rem]">
-                <div className="p-3">vs</div>
-                <div className="bg-blue-500  p-3 text-white ">Change</div>
+              <div className="bg-white uppercase font-semibold text-black flex items-center justify-center  rounded-lg overflow-hidden 2xl:text-[4rem]">
+                <div className="p-1 ">vs</div>
+                <div className="bg-blue-500  p-1 text-white ">Change</div>
               </div>
             </div>
 

@@ -23,7 +23,7 @@ const Team = ({ teamName, teamLogo }: any) => {
           priority={true}
         />
       )}
-      <div className="font-semibold font-poppins text-3xl 2xl:text-[3rem] w-full">
+      <div className="font-semibold font-poppins md:text-xl 2xl:text-[3rem] w-full">
         {teamName}
       </div>
     </div>

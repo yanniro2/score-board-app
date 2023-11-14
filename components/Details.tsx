@@ -38,9 +38,9 @@ export default function Page() {
   }
 
   return (
-    <div className="container h-[50vh] mx-auto 2xl:text-[3rem] rounded-xl p-5 text-white text-center">
+    <div className="container h-[50vh] mx-auto 2xl:text-[3rem] rounded-xl p-5 text-white text-center pt-[4rem]">
       {/* ... rest of your component code ... */}
-      <div className="flex flex-col gap-[1rem]">
+      <div className="flex flex-col">
         <SubPoints
           teamA={responseData?.data.team_one_try}
           name={"Try"}
