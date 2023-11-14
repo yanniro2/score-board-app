@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { RadioProvider } from "./context/RadioContext";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="w-full h-full bg-gray-950 text-white 2xl:text-[4rem]">
-        <RadioProvider>{children}</RadioProvider>
+        {children}
       </body>
     </html>
   );

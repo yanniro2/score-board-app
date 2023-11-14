@@ -18,9 +18,8 @@ type FormData = {
   team_one_goal: string;
   team_two_goal: string;
   [key: string]: string;
-  layout: string;
-  is_change: string;
   is_live: string;
+  is_change: string;
   // Index signature allowing any other string properties
 };
 
@@ -39,12 +38,10 @@ export default function ScoreDashboard() {
     team_two_penalty: "",
     team_one_goal: "",
     team_two_goal: "",
-    layout: "layout1",
-    is_change: "v",
-    is_live: "false",
+    layout: "",
+    is_change: "",
+    is_live: "true",
   });
-
-  const [apiResponse, setApiResponse] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -69,9 +66,6 @@ export default function ScoreDashboard() {
       });
 
       const data = await response.json();
-      console.log("Response data:", data); // Log the response data
-
-      setApiResponse(JSON.stringify(data));
 
       if (response.ok) {
         window.location.reload();
@@ -81,14 +75,6 @@ export default function ScoreDashboard() {
     } catch (error) {
       console.error("Error:", error);
     }
-  };
-
-  const handleLayoutChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      layout: value,
-    }));
   };
 
   return (

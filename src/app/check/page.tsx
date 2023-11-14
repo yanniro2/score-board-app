@@ -74,8 +74,8 @@ const YourComponent = () => {
       {/* Input fields */}
       <input
         type="text"
-        name="is_live"
-        value={formData.is_live}
+        name="team_one_goal"
+        value={formData.team_one_goal}
         onChange={handleChange}
         className="text-blue-900"
       />
