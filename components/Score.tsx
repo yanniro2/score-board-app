@@ -44,55 +44,10 @@ const Page = () => {
     <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300  xl:text-[1rem] 2xl:text-[3rem]">
       {responseData ? (
         <div className="w-2/3 h-full mx-auto">
-          <div className=" h-1/2 mx-auto flex items-center justify-between ">
-            {/* {responseData.success.match.trophy_image_url ? (
-              <Image
-                src={responseData.success.match.trophy_image_url}
-                width={500}
-                height={500}
-                alt="img flag"
-                className="object-contain h-full w-auto"
-                priority={true}
-              />
-            ) : (
-              <Image
-                src="/assets/trophy.png"
-                width={500}
-                height={500}
-                alt="img flag"
-                className="object-contain h-full w-auto"
-                priority={true}
-              />
-            )} */}
-
-            {/* <h1 className="text-4xl font-bold uppercase font-poppins w-max text-white 2xl:text-[5rem]"> */}
-            {/* {responseData.success.match.match_name} */}
-            {/* <Clock time={responseData.success.match.match_duration} /> */}
-            {/* </h1> */}
-
-            <div className="text-lg  drop-shadow px-4 py-2 w-min rounded-full   2xl:py-[1rem] mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] 2xl:px-[4rem]  xl:text-[1rem] 2xl:text-[3rem] ">
+          <div className=" mx-auto flex items-center justify-between ">
+            <div className="text-lg  drop-shadow w-min rounded-full  mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] xl:text-[1rem] 2xl:text-[3rem]  ">
               <Clock time={responseData.success.match.match_duration} />
             </div>
-
-            {/* {responseData.success.match.trophy_image_url ? (
-              <Image
-                src={responseData.success.match.trophy_image_url}
-                width={500}
-                height={500}
-                alt="img flag"
-                className="object-contain h-full w-auto"
-                priority={true}
-              />
-            ) : (
-              <Image
-                src="/assets/trophy.png"
-                width={500}
-                height={500}
-                alt="img flag"
-                className="object-contain h-full w-auto"
-                priority
-              />
-            )} */}
           </div>
 
           <div className="flex w-full items-center justify-between">

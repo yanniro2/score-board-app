@@ -36,14 +36,14 @@ const Page = () => {
   }
 
   return (
-    <div className="font-roboto font-bold">
+    <div className="font-roboto font-bold w-full">
       {responseData ? (
         <div className="flex items-center justify-center gap-[1rem] text-4xl 2xl:text-[3rem]">
-          <div className=" md:w-[4rem] md:h-[4rem]  rounded drop-shadow flex items-center justify-center 2xl:text-[5rem] 2xl:px-[3rem] 2xl:py-[3rem]">
+          <div className="md:w-[4rem] md:h-[4rem]  rounded drop-shadow flex items-center justify-center 2xl:text-[3rem]">
             {responseData?.data.total_score_team_one}
           </div>
           <div>:</div>
-          <div className=" w-[4rem] h-[4rem] rounded drop-shadow flex items-center justify-center 2xl:text-[5rem] 2xl:px-[3rem] 2xl:py-[3rem]">
+          <div className="md:w-[4rem] md:h-[4rem]  rounded drop-shadow flex items-center justify-center 2xl:text-[3rem]">
             {responseData?.data.total_score_team_two}
           </div>
         </div>
