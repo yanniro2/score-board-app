@@ -33,7 +33,7 @@ const Page = async () => {
   const data: [MatchData] = await res.json();
 
   return (
-    <div className="text-white 2xl:text-[3rem] 4xl:text-[20rem]">
+    <div className="text-white  md:text-[1rem] lg:text-[1rem] text-[1rem] 2xl:px-[4rem]  xl:text-[1rem] 2xl:text-[3rem] 4xl:text-[20rem]">
       {!data ? (
         <div className="w-screen h-screen flex items-center justify-center text-4xl text-white ">
           Match Loading...

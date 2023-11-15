@@ -41,7 +41,7 @@ const Page = () => {
   }
 
   return (
-    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300 2xl:text-[3rem]">
+    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300  xl:text-[1rem] 2xl:text-[3rem]">
       {responseData ? (
         <div className="w-2/3 h-full mx-auto">
           <div className=" h-1/2 mx-auto flex items-center justify-between ">
@@ -70,7 +70,7 @@ const Page = () => {
             {/* <Clock time={responseData.success.match.match_duration} /> */}
             {/* </h1> */}
 
-            <div className="text-lg  drop-shadow px-4 py-2 w-min rounded-full 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] mx-auto ">
+            <div className="text-lg  drop-shadow px-4 py-2 w-min rounded-full   2xl:py-[1rem] mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] 2xl:px-[4rem]  xl:text-[1rem] 2xl:text-[3rem] ">
               <Clock time={responseData.success.match.match_duration} />
             </div>
 
@@ -110,7 +110,7 @@ const Page = () => {
           </div>
         </div>
       ) : (
-        <div className="2xl:text-[6rem]">loading</div>
+        <div className="2xl:text-[6rem]  xl:text-[1rem]">loading</div>
       )}
     </div>
   );
