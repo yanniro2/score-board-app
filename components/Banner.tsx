@@ -1,27 +1,55 @@
+"use client";
+import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
 const Banner = () => {
-  return (
-    <div className="container mx-auto h-[10vh] flex overflow-hidden">
-      <div className="w-1/2 h-full">
-        <Image
-          src="/assets/Denmark.png"
-          width={100}
-          height={100}
-          alt="img flag"
-          className="object-contain h-full w-full"
-        />
-      </div>
+  const [responseData, setResponseData] = useState<any>(null);
 
-      <div className="w-1/2 h-full">
+  const fetchData = async () => {
+    try {
+      const res = await fetch(
+        "https://score-demo.yalpos.com/api/get-sponsor/1"
+      );
+      const data = await res.json();
+      setResponseData(data);
+      // console.log(data.success.match.trophy_image_url);
+      // console.log(data.success.match.trophy_image_url);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      await fetchData();
+    };
+
+    // Load data initially
+    loadData();
+
+    // Set up interval for automatic reload every 1 second
+    const intervalId = setInterval(loadData, 1000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
+  if (!responseData) {
+    // Add loading state if data is not yet available
+    return <div>Loading...</div>;
+  }
+  return (
+    <div className="container mx-auto h-[20vh] flex overflow-hidden w-full">
+      {responseData.map((data: string) => (
         <Image
-          src="/assets/Denmark.png"
-          width={100}
-          height={100}
+          key={data}
+          src={data}
+          width={200}
+          height={200}
           alt="img flag"
           className="object-contain h-full w-full"
         />
-      </div>
+      ))}
     </div>
   );
 };

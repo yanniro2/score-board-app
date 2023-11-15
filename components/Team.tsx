@@ -3,7 +3,7 @@ import Image from "next/image";
 const Team = ({ teamName, teamLogo }: any) => {
   // const imageUrl = teamLogo ? teamLogo : ;
   return (
-    <div className="flex items-center justify-center flex-col gap-[1rem] w-full md:gap-5">
+    <div className="flex items-center justify-between flex-col gap-[1rem]  md:gap-5 py-[2rem]">
       {teamLogo ? (
         <Image
           src={teamLogo} // Add a leading slash to the relative path
@@ -23,7 +23,7 @@ const Team = ({ teamName, teamLogo }: any) => {
           priority={true}
         />
       )}
-      <div className="font-semibold font-poppins md:text-xl 2xl:text-[3rem] w-full">
+      <div className="font-semibold font-poppins md:text-xl 2xl:text-[3rem]">
         {teamName}
       </div>
     </div>

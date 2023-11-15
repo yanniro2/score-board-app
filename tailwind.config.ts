@@ -14,6 +14,7 @@ const config: Config = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1440px",
+      "4xl": "2000px",
     },
     extend: {},
     fontFamily: {

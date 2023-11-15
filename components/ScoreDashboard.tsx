@@ -24,7 +24,11 @@ type FormData = {
 };
 
 export const revalidate = true;
-export default function ScoreDashboard() {
+
+interface ScoreDashboardProps {
+  id: number;
+}
+const ScoreDashboard: React.FC<ScoreDashboardProps> = ({ id }) => {
   const [formData, setFormData] = useState<FormData>({
     match_id: "1",
     additional_duration: "",
@@ -59,11 +63,14 @@ export default function ScoreDashboard() {
     }
 
     try {
-      const response = await fetch("https://score-demo.yalpos.com/api/score", {
-        method: "POST",
-        body: formDataObj,
-        next: { revalidate: 1 },
-      });
+      const response = await fetch(
+        `https://score-demo.yalpos.com/api/score/${id}`,
+        {
+          method: "POST",
+          body: formDataObj,
+          next: { revalidate: 1 },
+        }
+      );
 
       const data = await response.json();
 
@@ -78,9 +85,9 @@ export default function ScoreDashboard() {
   };
 
   return (
-    <div className="md:w-full h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full">
+    <div className="md:w-full h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full 2xl:text-[1rem]">
       <Popup />
-      <VsChange />
+      {/* <VsChange /> */}
       <form action={handleSubmit} className="flex flex-col gap-[1rem] w-full">
         <div className="box-1 p-3 bg-gray-800 w-full">
           <input
@@ -207,4 +214,6 @@ export default function ScoreDashboard() {
       </form>
     </div>
   );
-}
+};
+
+export default ScoreDashboard;

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Team from "./Team";
 import Clock from "./Clock";
+import ScoreTotal from "./ScoreTotal";
 export const revalidate = true;
 const Page = () => {
   const [responseData, setResponseData] = useState<any>(null);
@@ -42,9 +43,9 @@ const Page = () => {
   return (
     <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300 2xl:text-[3rem]">
       {responseData ? (
-        <div className="w-full h-full">
-          <div className="md:w-1/2 h-1/2 mx-auto flex items-center justify-evenly ">
-            {responseData.success.match.trophy_image_url ? (
+        <div className="w-2/3 h-full mx-auto">
+          <div className=" h-1/2 mx-auto flex items-center justify-between ">
+            {/* {responseData.success.match.trophy_image_url ? (
               <Image
                 src={responseData.success.match.trophy_image_url}
                 width={500}
@@ -62,12 +63,18 @@ const Page = () => {
                 className="object-contain h-full w-auto"
                 priority={true}
               />
-            )}
+            )} */}
 
-            <h1 className="text-4xl font-bold uppercase font-poppins w-max text-white 2xl:text-[3rem]">
-              {responseData.success.match.match_name}
-            </h1>
-            {responseData.success.match.trophy_image_url ? (
+            {/* <h1 className="text-4xl font-bold uppercase font-poppins w-max text-white 2xl:text-[5rem]"> */}
+            {/* {responseData.success.match.match_name} */}
+            {/* <Clock time={responseData.success.match.match_duration} /> */}
+            {/* </h1> */}
+
+            <div className="text-lg  drop-shadow px-4 py-2 w-min rounded-full 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] mx-auto ">
+              <Clock time={responseData.success.match.match_duration} />
+            </div>
+
+            {/* {responseData.success.match.trophy_image_url ? (
               <Image
                 src={responseData.success.match.trophy_image_url}
                 width={500}
@@ -85,30 +92,16 @@ const Page = () => {
                 className="object-contain h-full w-auto"
                 priority
               />
-            )}
+            )} */}
           </div>
 
-          <div className="flex items-center justify-between md:w-1/2 mx-auto">
+          <div className="flex w-full items-center justify-between">
             <Team
               teamName={responseData.success.match.team_one_name}
               teamLogo={responseData.success.match.team_one_image_url}
             />
 
-            <div className="  flex flex-col items-center justify-center gap-3 w-full">
-              <div className="flex items-center justify-center gap-[1rem] text-4xl 2xl:text-[3rem]">
-                <div className=" md:w-[4rem] md:h-[4rem]  rounded drop-shadow flex items-center justify-center 2xl:text-[5rem] 2xl:px-[3rem] 2xl:py-[3rem]">
-                  1
-                </div>
-                <div>:</div>
-                <div className=" w-[4rem] h-[4rem] rounded drop-shadow flex items-center justify-center 2xl:text-[5rem] 2xl:px-[3rem] 2xl:py-[3rem]">
-                  3
-                </div>
-              </div>
-              <div className="text-lg  drop-shadow px-4 py-2 w-min rounded-full border border-gray-900 2xl:text-[5rem] 2xl:px-[4rem] 2xl:py-[3rem] ">
-                {/* {data.duration} */}
-                <Clock time={responseData.success.match.match_duration} />
-              </div>
-            </div>
+            <ScoreTotal />
 
             <Team
               teamName={responseData.success.match.team_two_name}
