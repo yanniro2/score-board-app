@@ -3,13 +3,16 @@ import { useState, useEffect } from "react";
 import SubPoints from "./SubPoints";
 
 export const revalidate = true;
+interface ScoreDashboardProps {
+  id: number;
+}
 
-export default function Page() {
+const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   const [responseData, setResponseData] = useState<any>(null);
 
   const fetchData = async () => {
     try {
-      const res = await fetch("https://score-demo.yalpos.com/api/score/1");
+      const res = await fetch(`https://score-demo.yalpos.com/api/score/${id}`);
       const data = await res.json();
       setResponseData(data);
     } catch (error) {
@@ -79,4 +82,5 @@ export default function Page() {
       </div>
     </div>
   );
-}
+};
+export default Page;

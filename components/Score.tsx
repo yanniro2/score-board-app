@@ -1,16 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Team from "./Team";
 import Clock from "./Clock";
 import ScoreTotal from "./ScoreTotal";
 export const revalidate = true;
-const Page = () => {
+
+interface ScoreDashboardProps {
+  id: number;
+}
+const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   const [responseData, setResponseData] = useState<any>(null);
 
   const fetchData = async () => {
     try {
-      const res = await fetch("https://score-demo.yalpos.com/api/match/1");
+      const res = await fetch(`https://score-demo.yalpos.com/api/match/${id}`);
       const data = await res.json();
       setResponseData(data);
       // console.log(data.success.match.trophy_image_url);
@@ -45,7 +48,7 @@ const Page = () => {
       {responseData ? (
         <div className="w-2/3 h-full mx-auto">
           <div className=" mx-auto flex items-center justify-between ">
-            <div className="text-lg  drop-shadow w-min rounded-full  mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] xl:text-[1rem] 2xl:text-[3rem]  ">
+            <div className="text-lg  drop-shadow w-min rounded-full  mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] xl:text-[1rem] 2xl:text-[3rem] text-red-600 ">
               <Clock time={responseData.success.match.match_duration} />
             </div>
           </div>
@@ -56,7 +59,7 @@ const Page = () => {
               teamLogo={responseData.success.match.team_one_image_url}
             />
 
-            <ScoreTotal />
+            <ScoreTotal id={id} />
 
             <Team
               teamName={responseData.success.match.team_two_name}

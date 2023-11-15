@@ -6,39 +6,27 @@ interface ClockProps {
 }
 
 const Clock: React.FC<ClockProps> = ({ time }) => {
-  const initialTimeFormat = `00:0${time}:00`;
-  const [remainingTime, setRemainingTime] = useState<string>(initialTimeFormat);
+  const initialTotalSeconds = parseInt(time, 10) * 60;
+  const [remainingSeconds, setRemainingSeconds] =
+    useState<number>(initialTotalSeconds);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const newTime = decreaseTime(remainingTime);
-      setRemainingTime(newTime);
+      setRemainingSeconds((prevSeconds) => Math.max(0, prevSeconds - 1));
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [remainingTime]);
+  }, []);
 
-  const decreaseTime = (time: string): string => {
-    const parts = time.split(":");
-    let hours = parseInt(parts[0], 10);
-    let minutes = parseInt(parts[1], 10);
-    let seconds = parseInt(parts[2], 10);
+  const minutes = Math.floor(remainingSeconds / 60);
+  const seconds = remainingSeconds % 60;
 
-    let totalSeconds = hours * 3600 + minutes * 60 + seconds;
-
-    if (totalSeconds > 0) {
-      totalSeconds -= 1;
-      hours = Math.floor(totalSeconds / 3600);
-      minutes = Math.floor((totalSeconds % 3600) / 60);
-      seconds = totalSeconds % 60;
-    }
-
-    return `${hours.toString().padStart(2, "0")}:${minutes
-      .toString()
-      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-  };
-
-  return <div>{remainingTime}</div>;
+  return (
+    <div>
+      {minutes.toString().padStart(2, "0")}:
+      {seconds.toString().padStart(2, "0")}
+    </div>
+  );
 };
 
 export default Clock;

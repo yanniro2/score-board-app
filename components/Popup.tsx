@@ -28,7 +28,11 @@ type FormData = {
   is_change: string;
   // Index signature allowing any other string properties
 };
-const Popup = () => {
+
+interface ScoreDashboardProps {
+  id: number;
+}
+const Popup: React.FC<ScoreDashboardProps> = ({ id }) => {
   const [isWindowOpen, setIsWindowOpen] = useState(false);
   let myWindow: Window | null = null; // Declare myWindow variable with Window type and null initialization
 
@@ -42,7 +46,7 @@ const Popup = () => {
         ",height=" +
         height +
         ",fullscreen=yes,menubar=no,toolbar=no,location=no,personalbar=no,status=no,scrollbars=no,resizable=no";
-      let myWindow = window.open("/", "_blank", features);
+      let myWindow = window.open(`/live/${id}`, "_blank", features);
       if (myWindow) {
         const container = myWindow.document.createElement("div");
         myWindow.document.body.appendChild(container);
