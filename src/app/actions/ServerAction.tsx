@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { tryData } from "../../../typings";
 
 export const handleSubmit = async (e: FormData) => {
@@ -18,11 +18,12 @@ export const handleSubmit = async (e: FormData) => {
 
   await fetch("https://score-demo.yalpos.com/api/score/2", {
     method: "POST",
+    cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });
 
-  revalidatePath("/");
+  revalidatePath("/press");
 };
