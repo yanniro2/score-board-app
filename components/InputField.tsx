@@ -6,12 +6,24 @@ interface InputFieldProps {
 }
 const InputField: React.FC<InputFieldProps> = ({ teamA, teamB, name }) => {
   return (
-    <div className="flex flex-col gap-[1rem]">
-      <label htmlFor={teamA}>Team One {name}</label>
-      <input type="text" id={teamA} name={teamA} className="text-black" />
-
-      <label htmlFor={teamB}>Team Two {name}</label>
-      <input type="text" id={teamB} name={teamB} className="text-black" />
+    <div className="box-1 p-3">
+      <input
+        type="number"
+        id={teamA}
+        name={teamA}
+        className="input"
+        placeholder="enter value"
+      />
+      <h2 className="capitalize font-roboto font-normal tracking-wider flex items-center justify-center text-gray-500">
+        {name}
+      </h2>
+      <input
+        type="number"
+        id={teamB}
+        name={teamB}
+        className="input"
+        placeholder="enter value"
+      />
     </div>
   );
 };

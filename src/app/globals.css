@@ -26,6 +26,14 @@
   @apply bg-gray-900; 
 }
 
+.box-1:nth-child(even) {
+  @apply bg-gray-800; 
+}
+
+.input {
+  @apply p-3 rounded-xl capitalize text-black text-center;
+}
+
 
 
 
