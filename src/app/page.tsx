@@ -44,9 +44,9 @@ const Page = () => {
         </div>
       ) : (
         <>
-          <Score />
+          {/* <Score />
           <Details />
-          <Banner />
+          <Banner /> */}
         </>
       )}
     </div>
