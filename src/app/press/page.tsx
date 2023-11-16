@@ -1,5 +1,6 @@
+import InputField from "../../../components/InputField";
+import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/ServerAction";
-
 
 export default async function YourPage() {
   const res = await fetch("https://score-demo.yalpos.com/api/score/2", {
@@ -14,20 +15,10 @@ export default async function YourPage() {
   return (
     <div>
       <form action={handleSubmit} className="flex flex-col gap-[1rem]">
-        <label htmlFor="team_one_try">Team One Try</label>
-        <input
-          type="text"
-          id="team_one_try"
-          name="team_one_try"
-          className="text-black"
-        />
-
-        <label htmlFor="team_two_try">Team Two Try</label>
-        <input
-          type="text"
-          id="team_two_try"
-          name="team_two_try"
-          className="text-black"
+        <InputField
+          teamA={"team_one_try"}
+          teamB={"team_two_try"}
+          name={"try"}
         />
 
         <button
@@ -36,13 +27,11 @@ export default async function YourPage() {
           Submit
         </button>
       </form>
-
-      <div className="text-white">
-        team one try :{jsonData.data.team_one_try}
-      </div>
-      <div className="text-white">
-        team two try :{jsonData.data.team_two_try}
-      </div>
+      <ShowField
+        teamA={jsonData.data.team_one_try}
+        teamB={jsonData.data.team_two_try}
+        name={"try"}
+      />
     </div>
   );
 }
