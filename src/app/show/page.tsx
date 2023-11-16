@@ -26,7 +26,7 @@ const Page: React.FC = () => {
     fetchData();
     const intervalId = setInterval(() => {
       fetchData();
-    }, 500); // Adjust the interval as needed (in milliseconds)
+    }, 1000); // Adjust the interval as needed (in milliseconds)
 
     // Clean up the interval when the component is unmounted
     return () => clearInterval(intervalId);
