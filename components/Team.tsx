@@ -3,11 +3,11 @@ import Image from "next/image";
 const Team = ({ teamName, teamLogo }: any) => {
   // const imageUrl = teamLogo ? teamLogo : ;
   return (
-    <div className="flex items-center justify-between flex-col gap-[1rem]  md:gap-5 py-[2rem]">
+    <div className="flex items-center justify-between flex-col gap-[3rem]  w-1/3">
       {teamLogo ? (
         <Image
           src={teamLogo} // Add a leading slash to the relative path
-          width={200}
+          width={250}
           height={200}
           alt="img flag"
           className="border border-gray-700 rounded p-1 bg-gray-900  shadow-md"

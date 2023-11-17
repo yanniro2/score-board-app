@@ -45,7 +45,7 @@ const Popup: React.FC<ScoreDashboardProps> = ({ id }) => {
         width +
         ",height=" +
         height +
-        ",fullscreen=yes,menubar=no,toolbar=no,location=no,personalbar=no,status=no,scrollbars=no,resizable=no";
+        ",fullscreen=yes,menubar=no,toolbar=no,location=no,personalbar=no,status=no,scrollbars=no,resizable=no,";
       let myWindow = window.open(`/live/${id}`, "_blank", features);
       if (myWindow) {
         const container = myWindow.document.createElement("div");

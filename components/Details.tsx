@@ -41,7 +41,7 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   }
 
   return (
-    <div className="container h-[50vh] mx-auto 2xl:text-[6rem] rounded-xl p-5 text-white text-center ">
+    <div className="container h-[60vh] mx-auto 2xl:text-[6rem] rounded-xl p-5 text-white text-center ">
       {/* <div className="bg-white uppercase font-semibold text-white flex items-center justify-center  rounded-lg overflow-hidden 2xl:text-[6rem] w-min mx-auto">
         {responseData.data.is_change === "c" ? (
           <div className="flex items-center justify-center mx-auto">

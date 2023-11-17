@@ -42,11 +42,11 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             Match Loading...
           </div>
         ) : (
-          <>
+          <div className="w-screen h-screen overflow-hidden flex flex-col">
             <Score id={slugValue} />
             <Details id={slugValue} />
             <Banner />
-          </>
+          </div>
         )}
       </div>
     );

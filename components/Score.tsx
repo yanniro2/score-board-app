@@ -42,22 +42,19 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   }
 
   return (
-    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300  xl:text-[1rem] 2xl:text-[6rem]">
+    <div className="container h-[31vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col   xl:text-[1rem] 2xl:text-[6rem] ">
       {responseData ? (
-        <div className="w-2/3 h-full mx-auto">
-          <div className=" mx-auto flex items-center justify-between ">
-            <div className="text-lg  drop-shadow w-min rounded-full  mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] xl:text-[1rem] 2xl:text-[6rem] text-red-600 ">
-              <Clock time={responseData.success.match.match_duration} />
-            </div>
-          </div>
-
-          <div className="flex w-full items-center justify-between">
+        <div className="w-[80%] h-full mx-auto">
+          <div className="flex w-full items-end justify-around h-full">
             <Team
               teamName={responseData.success.match.team_one_name}
               teamLogo={responseData.success.match.team_one_image_url}
             />
 
-            <ScoreTotal id={id} />
+            <div className="flex items-center flex-col justify-end  mx-auto 2xl:text-[8rem] h-full w-1/3 gap-[4rem] ">
+              <ScoreTotal id={id} />
+              <Clock time={responseData.success.match.match_duration} />
+            </div>
 
             <Team
               teamName={responseData.success.match.team_two_name}

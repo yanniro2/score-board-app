@@ -19,7 +19,8 @@ const config: Config = {
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
       roboto: ["Roboto", "sans-serif"],
-      Time: ["Time", "sans-serif"],
+      Digital: ["DS-Digital", "sans-serif"],
+      custom: ["DS-DIGIB", "sans-serif"],
     },
   },
 
