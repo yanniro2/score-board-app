@@ -2,6 +2,7 @@ import InputField from "../../../components/InputField";
 import Radio from "../../../components/Radio";
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/ServerAction";
+import { RiLayoutFill } from "react-icons/ri";
 
 export default async function Page() {
   const res = await fetch("https://score-demo.yalpos.com/api/score/2", {
@@ -13,6 +14,21 @@ export default async function Page() {
 
   const jsonData = await res.json();
 
+  const layoutOptions = [
+    {
+      value: "layout1",
+      label: "Layout 1",
+      icon: <RiLayoutFill />,
+      name: "layout",
+    },
+    {
+      value: "layout2",
+      label: "Layout 2",
+      icon: <RiLayoutFill />,
+      name: "layout",
+    },
+    // ... other layout options
+  ];
   return (
     <div>
       <form
@@ -42,7 +58,7 @@ export default async function Page() {
           name={"drop goals"}
         />
 
-        <Radio />
+        <Radio layouts={layoutOptions} />
 
         <button
           type="submit"
