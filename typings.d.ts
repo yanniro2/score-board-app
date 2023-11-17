@@ -28,10 +28,12 @@ export interface tryData {
   team_two_penalty: string;
   team_one_goal: string;
   team_two_goal: string;
+  layout: string;
 }
 
 export interface tryData_1 {
   match_id: string;
   team_one_goal: string;
   team_two_goal: string;
+  layout: string;
 }

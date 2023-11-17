@@ -1,4 +1,5 @@
 import InputField from "../../../components/InputField";
+import Radio from "../../../components/Radio";
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/ServerAction";
 
@@ -40,6 +41,8 @@ export default async function Page() {
           teamB={"team_two_goal"}
           name={"drop goals"}
         />
+
+        <Radio />
 
         <button
           type="submit"

@@ -1,3 +1,5 @@
+import Radio from "../../../components/Radio";
+
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/TryServerAction";
 export default async function page() {
@@ -29,6 +31,9 @@ export default async function page() {
           className="input"
           placeholder="enter value"
         />
+
+        <Radio />
+
         <button
           type="submit"
           className="bg-red-400 p-3 text-white disabled:bg-blue-400 transition">
@@ -40,6 +45,7 @@ export default async function page() {
         teamB={jsonData.data.team_two_goal}
         name={"drop goals"}
       />
+      <div>{jsonData.data.layout}</div>
     </div>
   );
 }

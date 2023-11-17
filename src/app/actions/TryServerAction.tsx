@@ -5,13 +5,14 @@ import { tryData_1 } from "../../../typings";
 
 export const handleSubmit = async (e: FormData) => {
   const match_id = "2";
-  toString();
   const team_one_goal = e.get("team_one_goal")?.toString();
   const team_two_goal = e.get("team_two_goal")?.toString();
+  const layout = e.get("layout")?.toString();
 
   if (
     (!team_one_goal || team_one_goal.trim() === "") &&
-    (!team_two_goal || team_two_goal.trim() === "")
+    (!team_two_goal || team_two_goal.trim() === "") &&
+    (!layout || layout.trim() === "")
   ) {
     return;
   }
@@ -20,6 +21,7 @@ export const handleSubmit = async (e: FormData) => {
     match_id,
     team_one_goal: team_one_goal || "",
     team_two_goal: team_two_goal || "",
+    layout: layout || "",
   };
 
   await fetch("https://score-demo.yalpos.com/api/score/2", {
