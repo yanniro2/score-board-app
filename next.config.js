@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "score-demo.yalpos.com",
+        hostname: "scoreboard.yalpos.com",
         port: "",
         pathname: "/storage/*/**",
       },

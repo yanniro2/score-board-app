@@ -24,7 +24,7 @@ export const handleSubmit = async (e: FormData) => {
     layout: layout || "",
   };
 
-  await fetch("https://score-demo.yalpos.com/api/score/2", {
+  await fetch("https://scoreboard.yalpos.com/api/score/1", {
     method: "POST",
     cache: "no-cache",
     headers: {

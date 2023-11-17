@@ -11,7 +11,7 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(`https://score-demo.yalpos.com/api/score/${id}`);
+      const res = await fetch(`https://scoreboard.yalpos.com/api/score/1`);
       const data = await res.json();
       setResponseData(data);
     } catch (error) {

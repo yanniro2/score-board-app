@@ -28,7 +28,7 @@ interface MatchData {
 export default async function Page({ params }: { params: { slug: string[] } }) {
   // Check if params and params.slug are defined
   const slugValue = params?.slug ? parseInt(params.slug[0], 10) : NaN;
-  const res = await fetch("https://score-demo.yalpos.com/api/score/1", {
+  const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
     next: { revalidate: 1 },
   });
   const data: [MatchData] = await res.json();

@@ -9,7 +9,7 @@ const Page = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("https://score-demo.yalpos.com/api/score/1");
+      const res = await fetch("https://scoreboard.yalpos.com/api/score/1");
       const data = await res.json();
       setResponseData(data);
     } catch (error) {

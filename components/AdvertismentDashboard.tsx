@@ -1,5 +1,5 @@
 "use client";
-import RadioGroup from "./RadioGroup";
+
 import { BiGrid, BiFullscreen, BiLayout } from "react-icons/bi";
 import { LuPanelBottom } from "react-icons/lu";
 
@@ -19,13 +19,13 @@ const AdvertismentDashboard = () => {
 
   return (
     <div className="md:w-1/2 h-max mx-auto  flex flex-col justify-between gap-[2rem] w-full">
-      {options.map((option) => (
+      {/* {options.map((option) => (
         <RadioGroup
           key={option.id}
           options={option.data}
           heading={option.heading}
         />
-      ))}
+      ))} */}
 
       {/* <ButtonCheck /> */}
     </div>

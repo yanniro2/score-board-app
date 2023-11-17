@@ -12,7 +12,7 @@ import { MdChangeCircle } from "react-icons/md";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 export default async function Page() {
-  const res = await fetch("https://score-demo.yalpos.com/api/score/2", {
+  const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
     cache: "no-cache",
     next: {
       tags: ["press"],

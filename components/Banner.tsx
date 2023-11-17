@@ -8,7 +8,7 @@ const Banner = () => {
   const fetchData = async () => {
     try {
       const res = await fetch(
-        "https://score-demo.yalpos.com/api/get-sponsor/1"
+        "https://scoreboard.yalpos.com/api/get-sponsor/1"
       );
       const data = await res.json();
       setResponseData(data);

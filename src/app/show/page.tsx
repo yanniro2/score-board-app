@@ -6,7 +6,7 @@ const Page: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("https://score-demo.yalpos.com/api/score/2", {
+      const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
         cache: "no-cache",
       });
 

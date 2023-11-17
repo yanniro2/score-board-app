@@ -3,7 +3,7 @@ import Radio from "../../../components/Radio";
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/TryServerAction";
 export default async function page() {
-  const res = await fetch("https://score-demo.yalpos.com/api/score/2", {
+  const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
     cache: "no-cache",
     next: {
       tags: ["press"],
@@ -32,7 +32,7 @@ export default async function page() {
           placeholder="enter value"
         />
 
-        <Radio />
+        {/* <Radio /> */}
 
         <button
           type="submit"

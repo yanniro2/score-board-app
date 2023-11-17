@@ -11,7 +11,7 @@ const Page = ({ id, title, description }: any) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3001/api/topics/${id}`, {
+      const res = await fetch(`https://localhost:3001/api/topics/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

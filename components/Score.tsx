@@ -13,11 +13,9 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(`https://score-demo.yalpos.com/api/match/${id}`);
+      const res = await fetch(`https://scoreboard.yalpos.com/api/match/1`);
       const data = await res.json();
       setResponseData(data);
-      // console.log(data.success.match.trophy_image_url);
-      // console.log(data.success.match.trophy_image_url);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

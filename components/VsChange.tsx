@@ -45,10 +45,13 @@ const YourComponent = () => {
     }
 
     try {
-      const response = await fetch("https://score-demo.yalpos.com/api/score", {
-        method: "POST",
-        body: formDataObj,
-      });
+      const response = await fetch(
+        "https://scoreboard.yalpos.com/api/score/1",
+        {
+          method: "POST",
+          body: formDataObj,
+        }
+      );
 
       const data = await response.json();
     } catch (error) {

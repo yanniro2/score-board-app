@@ -6,6 +6,8 @@
 @tailwind utilities;
 
 
+
+
 .h2 {
   @apply capitalize font-poppins font-medium  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[3rem];
 }

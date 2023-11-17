@@ -63,14 +63,11 @@ const ScoreDashboard: React.FC<ScoreDashboardProps> = ({ id }) => {
     }
 
     try {
-      const response = await fetch(
-        `https://score-demo.yalpos.com/api/score/${id}`,
-        {
-          method: "POST",
-          body: formDataObj,
-          next: { revalidate: 1 },
-        }
-      );
+      const response = await fetch(`https://scoreboard.yalpos.com/api/score/1`, {
+        method: "POST",
+        body: formDataObj,
+        next: { revalidate: 1 },
+      });
 
       const data = await response.json();
 
