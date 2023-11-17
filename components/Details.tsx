@@ -41,45 +41,27 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   }
 
   return (
-    <div className="container h-[60vh] mx-auto 2xl:text-[6rem] rounded-xl p-5 text-white text-center ">
-      {/* <div className="bg-white uppercase font-semibold text-white flex items-center justify-center  rounded-lg overflow-hidden 2xl:text-[6rem] w-min mx-auto">
-        {responseData.data.is_change === "c" ? (
-          <div className="flex items-center justify-center mx-auto">
-            <div className="p-1 bg-gray-500">vs</div>
-
-            <div className="p-1 bg-blue-500">Change</div>
-          </div>
-        ) : (
-          <div className="flex items-center justify-center">
-            <div className="p-1 bg-blue-500">vs</div>
-
-            <div className="p-1 bg-gray-500">Change</div>
-          </div>
-        )}
-      </div> */}
-
-      <div className="flex flex-col w-full justify-center items-center">
-        <SubPoints
-          teamA={responseData?.data.team_one_try}
-          name={"Try"}
-          teamB={responseData?.data.team_two_try}
-        />
-        <SubPoints
-          teamA={responseData?.data.team_one_conversion}
-          name={"conversion"}
-          teamB={responseData?.data.team_two_conversion}
-        />
-        <SubPoints
-          teamA={responseData?.data.team_one_penalty}
-          name={"penalty"}
-          teamB={responseData?.data.team_two_penalty}
-        />
-        <SubPoints
-          teamA={responseData?.data.team_one_goal}
-          name={"drop goals"}
-          teamB={responseData?.data.team_two_goal}
-        />
-      </div>
+    <div className="container h-[58%] mx-auto 2xl:text-[6rem] text-white text-center flex flex-col items-center justify-evenly gap-0">
+      <SubPoints
+        teamA={responseData?.data.team_one_try}
+        name={"Try"}
+        teamB={responseData?.data.team_two_try}
+      />
+      <SubPoints
+        teamA={responseData?.data.team_one_conversion}
+        name={"conversion"}
+        teamB={responseData?.data.team_two_conversion}
+      />
+      <SubPoints
+        teamA={responseData?.data.team_one_penalty}
+        name={"penalty"}
+        teamB={responseData?.data.team_two_penalty}
+      />
+      <SubPoints
+        teamA={responseData?.data.team_one_goal}
+        name={"drop goal"}
+        teamB={responseData?.data.team_two_goal}
+      />
     </div>
   );
 };

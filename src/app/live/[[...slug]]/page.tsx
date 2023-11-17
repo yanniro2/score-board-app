@@ -36,13 +36,13 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   // Check if slugValue is equal to 1
   if (!isNaN(slugValue) && slugValue < 100) {
     return (
-      <div className=" text-white  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[6rem] 4xl:text-[20rem]">
+      <div className="w-screen h-screen text-white  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[6rem] 4xl:text-[20rem]">
         {!data ? (
           <div className="w-screen h-screen flex items-center justify-center text-4xl text-white ">
             Match Loading...
           </div>
         ) : (
-          <div className="w-screen h-screen overflow-hidden flex flex-col">
+          <div className="w-screen h-screen overflow-hidden">
             <Score id={slugValue} />
             <Details id={slugValue} />
             <Banner />

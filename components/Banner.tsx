@@ -39,15 +39,15 @@ const Banner = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="container mx-auto h-[9vh] flex overflow-hidden w-full -mt-[1rem]">
+    <div className="container mx-auto h-[10%] flex overflow-hidden w-full ">
       {responseData.map((data: string) => (
         <Image
           key={data}
           src={data}
-          width={500}
-          height={500}
+          width={1000}
+          height={1000}
           alt="img flag"
-          className="object-contain h-full w-full"
+          className="object-contain h-full w-full flex"
         />
       ))}
     </div>

@@ -42,7 +42,7 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   return (
     <div className="font-roboto font-bold w-full">
       {responseData ? (
-        <div className="flex items-end justify-center gap-[1rem] text-4xl 2xl:text-[8rem] text-yellow-400">
+        <div className="flex items-center justify-center text-xl 2xl:text-[15rem] text-yellow-400">
           {responseData?.data.total_score_team_one} <span>:</span>
           {responseData?.data.total_score_team_two}
         </div>
