@@ -2,7 +2,14 @@ import InputField from "../../../components/InputField";
 import Radio from "../../../components/Radio";
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/ServerAction";
-import { RiLayoutFill } from "react-icons/ri";
+import {
+  RiLayoutFill,
+  RiLayout2Fill,
+  RiLayoutColumnFill,
+  RiLayoutGridFill,
+} from "react-icons/ri";
+import { MdChangeCircle } from "react-icons/md";
+import { IoCheckmarkCircle } from "react-icons/io5";
 
 export default async function Page() {
   const res = await fetch("https://score-demo.yalpos.com/api/score/2", {
@@ -24,16 +31,43 @@ export default async function Page() {
     {
       value: "layout2",
       label: "Layout 2",
-      icon: <RiLayoutFill />,
+      icon: <RiLayout2Fill />,
       name: "layout",
     },
-    // ... other layout options
+    {
+      value: "layout3",
+      label: "Layout 3",
+      icon: <RiLayoutColumnFill />,
+      name: "layout",
+    },
+    {
+      value: "layout4",
+      label: "Layout 4",
+      icon: <RiLayoutGridFill />,
+      name: "layout",
+    },
+  ];
+
+  const vsChange = [
+    {
+      value: "vs",
+      label: "Vs",
+      icon: <IoCheckmarkCircle />,
+      name: "is_change",
+    },
+    {
+      value: "change",
+      label: "Change",
+      icon: <MdChangeCircle />,
+      name: "is_change",
+    },
   ];
   return (
     <div>
       <form
         action={handleSubmit}
         className="flex flex-col gap-[1rem] bg-gray-900">
+        <Radio layouts={vsChange} title="Vs Change" />
         <InputField
           teamA={"team_one_try"}
           teamB={"team_two_try"}
@@ -58,7 +92,7 @@ export default async function Page() {
           name={"drop goals"}
         />
 
-        <Radio layouts={layoutOptions} />
+        <Radio layouts={layoutOptions} title="layout" />
 
         <button
           type="submit"

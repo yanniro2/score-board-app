@@ -4,7 +4,6 @@ export interface Data {
   team_one_total: number;
   team_two_total: number;
 
-  layout: string;
   is_live: string;
   is_change: string;
 
@@ -16,6 +15,7 @@ export interface Data {
   team_two_penalty: number;
   team_one_goal: number;
   team_two_goal: number;
+  layout: string;
 }
 
 export interface tryData {
@@ -29,6 +29,7 @@ export interface tryData {
   team_one_goal: string;
   team_two_goal: string;
   layout: string;
+  is_change: string;
 }
 
 export interface tryData_1 {

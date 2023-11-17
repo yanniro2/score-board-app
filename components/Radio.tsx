@@ -10,9 +10,10 @@ interface Layout {
 
 interface RadioProps {
   layouts: Layout[];
+  title: string;
 }
 
-const Radio: React.FC<RadioProps> = ({ layouts }) => {
+const Radio: React.FC<RadioProps> = ({ layouts, title }) => {
   const [selectedLayout, setSelectedLayout] = useState<string | null>(null);
 
   const handleLayoutChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +22,7 @@ const Radio: React.FC<RadioProps> = ({ layouts }) => {
 
   return (
     <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center gap-[2rem] 2xl:text-[3rem]">
-      <h2 className="h2">Layout</h2>
+      <h2 className="h2">{title}</h2>
 
       <div className="w-full h-full flex text-center justify-evenly">
         {layouts.map((layout, index) => (
@@ -60,7 +61,9 @@ const Radio: React.FC<RadioProps> = ({ layouts }) => {
           </div>
         ))}
       </div>
-      <p>Selected Layout: {selectedLayout}</p>
+      <p>
+        Selected {title}: {selectedLayout}
+      </p>
     </div>
   );
 };

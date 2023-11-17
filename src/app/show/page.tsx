@@ -44,6 +44,7 @@ const Page: React.FC = () => {
       <div className="text-white">team one try :{data.data.team_one_try}</div>
       <div className="text-white">team two try :{data.data.team_two_try}</div>
       <div className="text-white">Layout :{data.data.layout}</div>
+      <div className="text-white">VS Change :{data.data.is_change}</div>
     </>
   );
 };
