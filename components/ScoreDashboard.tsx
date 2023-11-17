@@ -82,7 +82,7 @@ const ScoreDashboard: React.FC<ScoreDashboardProps> = ({ id }) => {
   };
 
   return (
-    <div className="md:w-full h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full 2xl:text-[1rem]">
+    <div className="md:w-full h-max mx-auto bg-gray-900 rounded-xl p-5 text-white text-center flex flex-col justify-between gap-[2rem] w-full 2xl:text-[6rem]">
       <Popup id={id} />
       {/* <VsChange /> */}
       <form action={handleSubmit} className="flex flex-col gap-[1rem] w-full">

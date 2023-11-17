@@ -5,11 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Time';
+  src: url('/fonts/DS-DIGIB.TTF') format('TTF');
+  font-weight: normal;
+  font-style: normal;
+}
 
+.time {
+  @apply font-Time;
+}
 
 
 .h2 {
-  @apply capitalize font-poppins font-medium  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[3rem];
+  @apply capitalize font-poppins font-medium  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[6rem];
 }
 
 .btn {
@@ -35,6 +44,8 @@
 .input {
   @apply p-3 rounded-xl capitalize text-black text-center;
 }
+
+
 
 
 

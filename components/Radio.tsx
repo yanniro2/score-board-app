@@ -21,7 +21,7 @@ const Radio: React.FC<RadioProps> = ({ layouts, title }) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center gap-[2rem] 2xl:text-[3rem]">
+    <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center gap-[2rem] 2xl:text-[6rem]">
       <h2 className="h2">{title}</h2>
 
       <div className="w-full h-full flex text-center justify-evenly">

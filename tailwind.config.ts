@@ -13,13 +13,13 @@ const config: Config = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      "2xl": "1440px",
-      "4xl": "2000px",
+      "2xl": "1920px",
     },
     extend: {},
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
       roboto: ["Roboto", "sans-serif"],
+      Time: ["Time", "sans-serif"],
     },
   },
 

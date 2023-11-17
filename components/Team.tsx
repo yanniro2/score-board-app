@@ -7,8 +7,8 @@ const Team = ({ teamName, teamLogo }: any) => {
       {teamLogo ? (
         <Image
           src={teamLogo} // Add a leading slash to the relative path
-          width={100}
-          height={100}
+          width={200}
+          height={200}
           alt="img flag"
           className="border border-gray-700 rounded p-1 bg-gray-900  shadow-md"
           priority={true}
@@ -16,14 +16,14 @@ const Team = ({ teamName, teamLogo }: any) => {
       ) : (
         <Image
           src="/assets/team.png"
-          width={100}
-          height={100}
+          width={200}
+          height={200}
           alt="img flag"
           className="border border-gray-700 rounded p-1 bg-gray-900  shadow-md"
           priority={true}
         />
       )}
-      <div className="font-semibold font-poppins md:text-xl 2xl:text-[3rem] md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] w-max ">
+      <div className="font-semibold font-poppins md:text-xl 2xl:text-[6rem] md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] w-max ">
         {teamName}
       </div>
     </div>

@@ -42,11 +42,11 @@ const Page: React.FC<ScoreDashboardProps> = ({ id }) => {
   }
 
   return (
-    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300  xl:text-[1rem] 2xl:text-[3rem]">
+    <div className="container h-[30vh] justify-evenly gap-[2rem] mx-auto p-5 text-white shadow-xl mt-5 rounded-xl text-center flex flex-col large-width:bg-orange-300  xl:text-[1rem] 2xl:text-[6rem]">
       {responseData ? (
         <div className="w-2/3 h-full mx-auto">
           <div className=" mx-auto flex items-center justify-between ">
-            <div className="text-lg  drop-shadow w-min rounded-full  mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] xl:text-[1rem] 2xl:text-[3rem] text-red-600 ">
+            <div className="text-lg  drop-shadow w-min rounded-full  mx-auto md:text-[1rem] lg:text-[1rem] text-[1rem] xl:text-[1rem] 2xl:text-[6rem] text-red-600 ">
               <Clock time={responseData.success.match.match_duration} />
             </div>
           </div>

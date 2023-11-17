@@ -22,7 +22,7 @@ const Clock: React.FC<ClockProps> = ({ time }) => {
   const seconds = remainingSeconds % 60;
 
   return (
-    <div>
+    <div className="text-red-500 text-[44px] font-Time time">
       {minutes.toString().padStart(2, "0")}:
       {seconds.toString().padStart(2, "0")}
     </div>
