@@ -5,7 +5,6 @@ export interface Data {
   team_two_total: number;
 
   is_live: string;
-  is_change: string;
 
   team_one_try: string;
   team_two_try: string;
@@ -16,6 +15,7 @@ export interface Data {
   team_one_goal: number;
   team_two_goal: number;
   layout: string;
+  is_change: string;
 }
 
 export interface tryData {
@@ -30,6 +30,7 @@ export interface tryData {
   team_two_goal: string;
   layout: string;
   is_change: string;
+  is_live: string;
 }
 
 export interface tryData_1 {

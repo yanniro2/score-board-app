@@ -10,6 +10,8 @@ import {
 } from "react-icons/ri";
 import { MdChangeCircle } from "react-icons/md";
 import { IoCheckmarkCircle } from "react-icons/io5";
+import VsChange from "../../../components/VsChange";
+import LiveStop from "../../../components/LiveStop";
 
 export default async function Page() {
   const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
@@ -62,12 +64,30 @@ export default async function Page() {
       name: "is_change",
     },
   ];
+
+  const live = [
+    {
+      value: "Live",
+      label: "Live",
+      icon: <IoCheckmarkCircle />,
+      name: "is_live",
+    },
+    {
+      value: "Stop",
+      label: "Stop",
+      icon: <MdChangeCircle />,
+      name: "is_live",
+    },
+  ];
+
   return (
     <div>
       <form
         action={handleSubmit}
         className="flex flex-col gap-[1rem] bg-gray-900">
-        <Radio layouts={vsChange} title="Vs Change" />
+        <LiveStop layouts={live} title={"Live / Stop"} />
+        <VsChange layouts={vsChange} title="Vs Change" />
+
         <InputField
           teamA={"team_one_try"}
           teamB={"team_two_try"}

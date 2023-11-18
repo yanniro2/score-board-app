@@ -41,10 +41,28 @@ const Page: React.FC = () => {
 
   return (
     <>
-      <div className="text-white">team one try :{data.data.team_one_try}</div>
-      <div className="text-white">team two try :{data.data.team_two_try}</div>
+      <div className="text-white">match Id :{data.data.match_id}</div>
+      <div className="text-white">team One try :{data.data.team_one_try}</div>
+      <div className="text-white">team One two :{data.data.team_two_try}</div>
+      <div className="text-white">
+        team One Conversion :{data.data.team_one_conversion}
+      </div>
+      <div className="text-white">
+        team Two Conversion :{data.data.team_two_conversion}
+      </div>
+      <div className="text-white">
+        team One Penalty :{data.data.team_one_penalty}
+      </div>
+      <div className="text-white">
+        team Two Penalty:{data.data.team_two_penalty}
+      </div>
+      <div className="text-white">team One Goal :{data.data.team_one_goal}</div>
+      <div className="text-white">
+        team Two Goal :{data.data.team_onteam_two_goale_try}
+      </div>
       <div className="text-white">Layout :{data.data.layout}</div>
-      <div className="text-white">VS Change :{data.data.is_change}</div>
+      <div className="text-white">Change :{data.data.is_change}</div>
+      <div className="text-white">Live / Stop :{data.data.is_live}</div>
     </>
   );
 };

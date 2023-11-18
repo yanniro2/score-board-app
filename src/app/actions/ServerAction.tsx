@@ -15,6 +15,7 @@ export const handleSubmit = async (e: FormData) => {
   const team_two_goal = e.get("team_two_goal")?.toString();
   const layout = e.get("layout")?.toString();
   const is_change = e.get("is_change")?.toString();
+  const is_live = e.get("is_live")?.toString();
 
   if (
     (!team_one_try || team_one_try.trim() === "") &&
@@ -26,7 +27,8 @@ export const handleSubmit = async (e: FormData) => {
     (!team_one_goal || team_one_goal.trim() === "") &&
     (!team_two_goal || team_two_goal.trim() === "") &&
     (!layout || layout.trim() === "") &&
-    (!is_change || is_change.trim() === "")
+    (!is_change || is_change.trim() === "") &&
+    (!is_live || is_live.trim() === "")
   ) {
     return;
   }
@@ -43,6 +45,7 @@ export const handleSubmit = async (e: FormData) => {
     team_two_goal: team_two_goal || "",
     layout: layout || "",
     is_change: is_change || "",
+    is_live: is_live || "",
   };
 
   await fetch("https://scoreboard.yalpos.com/api/score/1", {

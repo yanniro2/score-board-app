@@ -8,12 +8,12 @@ interface Layout {
   name: string;
 }
 
-interface VsChangeProps {
+interface LiveStopProps {
   layouts: Layout[];
   title: string;
 }
 
-const VsChange: React.FC<VsChangeProps> = ({ layouts, title }) => {
+const LiveStop: React.FC<LiveStopProps> = ({ layouts, title }) => {
   const [selectedLayout, setSelectedLayout] = useState<string | null>(null);
 
   const handleLayoutChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -68,4 +68,4 @@ const VsChange: React.FC<VsChangeProps> = ({ layouts, title }) => {
   );
 };
 
-export default VsChange;
+export default LiveStop;
