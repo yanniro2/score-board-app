@@ -1,8 +1,8 @@
 "use client";
 import { useState, ChangeEvent } from "react";
-import Popup from "./Popup";
+import Popup from "../Popup";
 import { GrUpdate } from "react-icons/gr";
-import VsChange from "./VsChange";
+import VsChange from "../VsChange";
 
 type FormData = {
   match_id: string;
@@ -63,11 +63,14 @@ const ScoreDashboard: React.FC<ScoreDashboardProps> = ({ id }) => {
     }
 
     try {
-      const response = await fetch(`https://scoreboard.yalpos.com/api/score/1`, {
-        method: "POST",
-        body: formDataObj,
-        next: { revalidate: 1 },
-      });
+      const response = await fetch(
+        `https://scoreboard.yalpos.com/api/score/1`,
+        {
+          method: "POST",
+          body: formDataObj,
+          next: { revalidate: 1 },
+        }
+      );
 
       const data = await response.json();
 

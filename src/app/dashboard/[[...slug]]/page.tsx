@@ -1,6 +1,8 @@
-import ScoreDashboard from "../../../../components/ScoreDashboard";
+import ScoreDashboard from "../../../../components/dashboard/ScoreDashboard";
 
-export default function Page({ params }: { params: { slug: string[] } }) {
+export default function Page({
+  params,
+}: Readonly<{ params: { slug: string[] } }>) {
   // Check if params and params.slug are defined
   const slugValue = params?.slug ? parseInt(params.slug[0], 10) : NaN;
 

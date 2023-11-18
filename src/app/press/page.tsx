@@ -7,7 +7,7 @@ import {
   RiLayout2Fill,
   RiLayoutColumnFill,
   RiLayoutGridFill,
-  RiRefreshFill,
+ 
 } from "react-icons/ri";
 import { MdChangeCircle } from "react-icons/md";
 import { IoCheckmarkCircle } from "react-icons/io5";
@@ -16,6 +16,7 @@ import VsChange from "../../../components/VsChange";
 import LiveStop from "../../../components/LiveStop";
 import TeamNames from "../../../components/dashboard/TeamNames";
 import ShowTime from "../../../components/dashboard/ShowTime";
+import SubmitBtn from "../../../components/dashboard/SubmitBtn";
 
 export default async function Page() {
   const res_score = await fetch("https://scoreboard.yalpos.com/api/score/1", {
@@ -84,8 +85,8 @@ export default async function Page() {
         action={handleSubmit}
         className="flex  gap-[1rem]   items-start h-full">
         <div className="box-2 p-3">
-          {/* <LiveStop /> */} 
-          
+          {/* <LiveStop /> */}
+
           <VsChange layouts={vsChange} title="Vs Change" />
 
           <Radio layouts={layoutOptions} title="layout" />
@@ -123,13 +124,7 @@ export default async function Page() {
             />
           </div>
         </div>
-
-        <button
-          type="submit"
-          className="bg-white p-3 font-semibold text-black disabled:bg-blue-400 transition absolute top-6 right-6 rounded-xl flex items-center justify-center gap-[1rem] drop-shadow shadow-md m-1">
-          <RiRefreshFill />
-          Update
-        </button>
+        <SubmitBtn />
       </form>
       <ShowField />
     </div>
