@@ -1,6 +1,6 @@
-import Banner from "../../../../components/Banner";
-import Details from "../../../../components/Details";
-import Score from "../../../../components/Score";
+import Banner from "../../../../components/live/Banner";
+import Details from "../../../../components/live/Details";
+import Score from "../../../../components/live/Score";
 
 export const revalidate = true;
 interface MatchData {

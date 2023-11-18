@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Banner from "../../components/Banner";
-import Details from "../../components/Details";
-import Score from "../../components/Score";
+import Banner from "../../components/live/Banner";
+import Details from "../../components/live/Details";
+import Score from "../../components/live/Score";
 
 const Page = () => {
   const [responseData, setResponseData] = useState<any>(null);
