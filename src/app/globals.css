@@ -20,23 +20,30 @@
   @apply capitalize font-poppins font-medium  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[6rem];
 }
 
+.h2-1 {
+ @apply uppercase font-poppins font-medium  md:text-[1rem] lg:text-[1rem] text-[1rem]   xl:text-[1rem] 2xl:text-[6rem];
+}
+
 .btn {
-  @apply px-4 py-2 rounded font-semibold ;
+  @apply px-4 py-2 rounded font-semibold cursor-pointer ;
 }
 
 .box-1 {
-  @apply flex items-center justify-between p-3 w-full;
+  @apply flex items-center justify-between p-3 w-full rounded-xl;
+}
+.box-2 {
+  @apply flex items-center justify-between w-1/2 rounded-xl flex-col gap-[1rem];
 }
 
 .input {
   @apply p-3 rounded-xl capitalize text-black text-center;
 }
 
-.box-1:nth-child(odd) {
+.box-1:nth-child(odd),.box-2:nth-child(odd) {
   @apply bg-gray-900; 
 }
 
-.box-1:nth-child(even) {
+.box-1:nth-child(even),.box-2:nth-child(even) {
   @apply bg-gray-800; 
 }
 

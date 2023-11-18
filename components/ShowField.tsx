@@ -1,22 +1,20 @@
-import React from "react";
+export default async function ShowField() {
+  const res_score = await fetch("https://scoreboard.yalpos.com/api/score/1", {
+    cache: "no-cache",
+    next: {
+      tags: ["press"],
+    },
+  });
 
-interface ShowFieldProps {
-  teamA: string;
-  teamB: string;
-  name: string;
+  const jsonData_score = await res_score.json();
+
+  const res_match = await fetch("https://scoreboard.yalpos.com/api/match/1", {
+    cache: "no-cache",
+    next: {
+      tags: ["press"],
+    },
+  });
+
+  const jsonData_match = await res_match.json();
+  return <div>{jsonData_score.data.is_live}</div>;
 }
-
-const ShowField: React.FC<ShowFieldProps> = ({ teamA, teamB, name }) => {
-  return (
-    <div>
-      <div className="text-white">
-        team one {name}: {teamA}
-      </div>
-      <div className="text-white">
-        team two {name}: {teamB}
-      </div>
-    </div>
-  );
-};
-
-export default ShowField;

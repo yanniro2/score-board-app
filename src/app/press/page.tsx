@@ -7,21 +7,34 @@ import {
   RiLayout2Fill,
   RiLayoutColumnFill,
   RiLayoutGridFill,
+  RiRefreshFill,
 } from "react-icons/ri";
 import { MdChangeCircle } from "react-icons/md";
 import { IoCheckmarkCircle } from "react-icons/io5";
+
 import VsChange from "../../../components/VsChange";
 import LiveStop from "../../../components/LiveStop";
+import TeamNames from "../../../components/dashboard/TeamNames";
+import ShowTime from "../../../components/dashboard/ShowTime";
 
 export default async function Page() {
-  const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
+  const res_score = await fetch("https://scoreboard.yalpos.com/api/score/1", {
     cache: "no-cache",
     next: {
       tags: ["press"],
     },
   });
 
-  const jsonData = await res.json();
+  const jsonData_score = await res_score.json();
+
+  const res_match = await fetch("https://scoreboard.yalpos.com/api/match/1", {
+    cache: "no-cache",
+    next: {
+      tags: ["press"],
+    },
+  });
+
+  const jsonData_match = await res_match.json();
 
   const layoutOptions = [
     {
@@ -65,66 +78,60 @@ export default async function Page() {
     },
   ];
 
-  const live = [
-    {
-      value: "Live",
-      label: "Live",
-      icon: <IoCheckmarkCircle />,
-      name: "is_live",
-    },
-    {
-      value: "Stop",
-      label: "Stop",
-      icon: <MdChangeCircle />,
-      name: "is_live",
-    },
-  ];
-
   return (
     <div>
       <form
         action={handleSubmit}
-        className="flex flex-col gap-[1rem] bg-gray-900">
-        <LiveStop layouts={live} title={"Live / Stop"} />
-        <VsChange layouts={vsChange} title="Vs Change" />
+        className="flex  gap-[1rem]   items-start h-full">
+        <div className="box-2 p-3">
+          {/* <LiveStop /> */} 
+          
+          <VsChange layouts={vsChange} title="Vs Change" />
 
-        <InputField
-          teamA={"team_one_try"}
-          teamB={"team_two_try"}
-          name={"try"}
-        />
+          <Radio layouts={layoutOptions} title="layout" />
+        </div>
+        <div className="box-2 ">
+          <ShowTime time={jsonData_match.success.match.match_duration} />
 
-        <InputField
-          teamA={"team_one_conversion"}
-          teamB={"team_two_conversion"}
-          name={"conversion"}
-        />
+          <div className="flex w-full h-min bg-slate-900  flex-col gap-[1rem] rounded-xl">
+            <TeamNames
+              nameA={jsonData_match.success.match.team_one_name}
+              nameB={jsonData_match.success.match.team_two_name}
+            />
+            <InputField
+              teamA={"team_one_try"}
+              teamB={"team_two_try"}
+              name={"try"}
+            />
 
-        <InputField
-          teamA={"team_one_penalty"}
-          teamB={"team_two_penalty"}
-          name={"penalty"}
-        />
+            <InputField
+              teamA={"team_one_conversion"}
+              teamB={"team_two_conversion"}
+              name={"conversion"}
+            />
 
-        <InputField
-          teamA={"team_one_goal"}
-          teamB={"team_two_goal"}
-          name={"drop goals"}
-        />
+            <InputField
+              teamA={"team_one_penalty"}
+              teamB={"team_two_penalty"}
+              name={"penalty"}
+            />
 
-        <Radio layouts={layoutOptions} title="layout" />
+            <InputField
+              teamA={"team_one_goal"}
+              teamB={"team_two_goal"}
+              name={"drop goals"}
+            />
+          </div>
+        </div>
 
         <button
           type="submit"
-          className="bg-red-400 p-3 text-white disabled:bg-blue-400 transition">
-          Submit
+          className="bg-white p-3 font-semibold text-black disabled:bg-blue-400 transition absolute top-6 right-6 rounded-xl flex items-center justify-center gap-[1rem] drop-shadow shadow-md m-1">
+          <RiRefreshFill />
+          Update
         </button>
       </form>
-      <ShowField
-        teamA={jsonData.data.team_one_goal}
-        teamB={jsonData.data.team_two_goal}
-        name={"drop goals"}
-      />
+      <ShowField />
     </div>
   );
 }
