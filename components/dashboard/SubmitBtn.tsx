@@ -18,7 +18,7 @@ const SubmitBtn = () => {
             <div>Checking....</div>
           ) : (
             <div className="flex items-center justify-center gap-[1rem]">
-              Check <MdOutlineChangeCircle />
+              Check <MdOutlineChangeCircle className="text-[1.5rem]" />
             </div>
           )}
         </div>
@@ -26,11 +26,12 @@ const SubmitBtn = () => {
         <div className="flex items-center justify-center gap-[1rem] ">
           {start ? (
             <div className="flex items-center justify-center gap-[1rem]">
-              Update <IoCheckmarkDoneCircle className="text-green-600" />
+              Update
+              <IoCheckmarkDoneCircle className="text-green-600 text-[1.5rem]" />
             </div>
           ) : (
             <div className="flex items-center justify-center gap-[1rem]">
-              Check <MdOutlineChangeCircle />
+              Check <MdOutlineChangeCircle className="text-[1.5rem]" />
             </div>
           )}
         </div>
