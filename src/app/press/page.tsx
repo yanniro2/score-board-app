@@ -1,5 +1,4 @@
 import InputField from "../../../components/InputField";
-import Radio from "../../../components/Radio";
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/ServerAction";
 import {
@@ -7,16 +6,15 @@ import {
   RiLayout2Fill,
   RiLayoutColumnFill,
   RiLayoutGridFill,
- 
 } from "react-icons/ri";
 import { MdChangeCircle } from "react-icons/md";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 import VsChange from "../../../components/dashboard/VsChange";
-import LiveStop from "../../../components/LiveStop";
 import TeamNames from "../../../components/dashboard/TeamNames";
 import ShowTime from "../../../components/dashboard/ShowTime";
 import SubmitBtn from "../../../components/dashboard/SubmitBtn";
+import Layout from "../../../components/dashboard/Layout";
 
 export default async function Page() {
   const res_score = await fetch("https://scoreboard.yalpos.com/api/score/1", {
@@ -89,7 +87,7 @@ export default async function Page() {
 
           <VsChange layouts={vsChange} title="Vs / Change" />
 
-          <Radio layouts={layoutOptions} title="layout" />
+          <Layout layouts={layoutOptions} title="layout" />
         </div>
         <div className="box-2 ">
           <ShowTime time={jsonData_match.success.match.match_duration} />
