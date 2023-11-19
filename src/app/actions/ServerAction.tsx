@@ -48,14 +48,20 @@ export const handleSubmit = async (e: FormData) => {
     is_live: is_live || "",
   };
 
-  await fetch("https://scoreboard.yalpos.com/api/score/1", {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  
+
+  try {
+    await fetch("https://scoreboard.yalpos.com/api/score/1", {
+      method: "POST",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
   revalidatePath("/press");
 };

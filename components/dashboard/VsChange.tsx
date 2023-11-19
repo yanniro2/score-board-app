@@ -21,7 +21,7 @@ const VsChange: React.FC<VsChangeProps> = ({ layouts, title }) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center font-roboto ">
+    <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center font-roboto sm:pt-[4rem] md:pt-[4rem] ">
       <h2 className="h2-1">{title}</h2>
 
       <div className="w-full h-full flex text-center justify-evenly">

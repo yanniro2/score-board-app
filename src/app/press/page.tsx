@@ -23,7 +23,6 @@ export default async function Page() {
       tags: ["press"],
     },
   });
-
   const jsonData_score = await res_score.json();
 
   const res_match = await fetch("https://scoreboard.yalpos.com/api/match/1", {
@@ -32,7 +31,6 @@ export default async function Page() {
       tags: ["press"],
     },
   });
-
   const jsonData_match = await res_match.json();
 
   const layoutOptions = [
@@ -78,55 +76,60 @@ export default async function Page() {
   ];
 
   return (
-    <div>
-      <form
-        action={handleSubmit}
-        className="flex  gap-[1rem]   items-start h-full">
-        <div className="box-2 p-3">
-          {/* <LiveStop /> */}
+    <form
+      action={handleSubmit}
+      className="flex  gap-[1rem]   items-start h-full w-full md:flex-col sm:flex-col  ">
+      <div className="box-2 p-3 md:w-full sm:w-full">
+        {/* <LiveStop /> */}
 
-          <VsChange layouts={vsChange} title="Vs / Change" />
+        <VsChange layouts={vsChange} title="Vs / Change" />
 
-          <Layout layouts={layoutOptions} title="layout" />
-        </div>
-        <div className=" bg-gray-800 p-3 w-1/2 h-full rounded-xl">
-          <div className="bg-gray-900 w-full h-full rounded-xl flex flex-col items-center gap-[1rem]">
+        <Layout layouts={layoutOptions} title="layout" />
+      </div>
+      <div className=" bg-gray-800 p-3 w-1/2 h-full rounded-xl md:w-full sm:w-full">
+        <div className="bg-gray-900 w-full h-full rounded-xl flex flex-col items-center gap-[1rem]">
+          {jsonData_match ? (
             <ShowTime time={jsonData_match.success.match.match_duration} />
+          ) : (
+            <div>Loading</div>
+          )}
 
-            <div className="flex w-full h-min bg-gray-900  flex-col gap-[1rem] rounded-xl ">
+          <div className="flex w-full h-min bg-gray-900  flex-col gap-[1rem] rounded-xl ">
+            {jsonData_match ? (
               <TeamNames
                 nameA={jsonData_match.success.match.team_one_name}
                 nameB={jsonData_match.success.match.team_two_name}
               />
-              <InputField
-                teamA={"team_one_try"}
-                teamB={"team_two_try"}
-                name={"try"}
-              />
+            ) : (
+              <div>Loading</div>
+            )}
+            <InputField
+              teamA={"team_one_try"}
+              teamB={"team_two_try"}
+              name={"try"}
+            />
 
-              <InputField
-                teamA={"team_one_conversion"}
-                teamB={"team_two_conversion"}
-                name={"conversion"}
-              />
+            <InputField
+              teamA={"team_one_conversion"}
+              teamB={"team_two_conversion"}
+              name={"conversion"}
+            />
 
-              <InputField
-                teamA={"team_one_penalty"}
-                teamB={"team_two_penalty"}
-                name={"penalty"}
-              />
+            <InputField
+              teamA={"team_one_penalty"}
+              teamB={"team_two_penalty"}
+              name={"penalty"}
+            />
 
-              <InputField
-                teamA={"team_one_goal"}
-                teamB={"team_two_goal"}
-                name={"drop goals"}
-              />
-            </div>
+            <InputField
+              teamA={"team_one_goal"}
+              teamB={"team_two_goal"}
+              name={"drop goals"}
+            />
           </div>
         </div>
-        <SubmitBtn />
-      </form>
-      <ShowField />
-    </div>
+      </div>
+      <SubmitBtn />
+    </form>
   );
 }
