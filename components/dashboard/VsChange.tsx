@@ -21,8 +21,8 @@ const VsChange: React.FC<VsChangeProps> = ({ layouts, title }) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center gap-[2rem] 2xl:text-[6rem]">
-      <h2 className="h2">{title}</h2>
+    <div className="w-full h-full flex flex-col justify-evenly bg-gray-900 rounded-xl p-5 text-white text-center font-roboto ">
+      <h2 className="h2-1">{title}</h2>
 
       <div className="w-full h-full flex text-center justify-evenly">
         {layouts.map((layout, index) => (
@@ -46,14 +46,14 @@ const VsChange: React.FC<VsChangeProps> = ({ layouts, title }) => {
               <div
                 className={`w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center ${
                   selectedLayout === layout.value
-                    ? "bg-blue-500 border-blue-500"
+                    ? "bg-orange-600 border-orange-600"
                     : ""
                 }`}>
                 {selectedLayout === layout.value && (
                   <div className="w-2 h-2 rounded-full bg-white"></div>
                 )}
               </div>
-              <span className="ml-2">
+              <span className="ml-2 flex items-center gap-[1rem]">
                 {layout.icon}
                 {layout.label}
               </span>
@@ -61,9 +61,6 @@ const VsChange: React.FC<VsChangeProps> = ({ layouts, title }) => {
           </div>
         ))}
       </div>
-      <p>
-        Selected {title}: {selectedLayout}
-      </p>
     </div>
   );
 };

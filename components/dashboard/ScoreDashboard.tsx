@@ -2,7 +2,7 @@
 import { useState, ChangeEvent } from "react";
 import Popup from "../Popup";
 import { GrUpdate } from "react-icons/gr";
-import VsChange from "../VsChange";
+import VsChange from "./VsChange";
 
 type FormData = {
   match_id: string;

@@ -12,7 +12,7 @@ import {
 import { MdChangeCircle } from "react-icons/md";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
-import VsChange from "../../../components/VsChange";
+import VsChange from "../../../components/dashboard/VsChange";
 import LiveStop from "../../../components/LiveStop";
 import TeamNames from "../../../components/dashboard/TeamNames";
 import ShowTime from "../../../components/dashboard/ShowTime";
@@ -87,7 +87,7 @@ export default async function Page() {
         <div className="box-2 p-3">
           {/* <LiveStop /> */}
 
-          <VsChange layouts={vsChange} title="Vs Change" />
+          <VsChange layouts={vsChange} title="Vs / Change" />
 
           <Radio layouts={layoutOptions} title="layout" />
         </div>
