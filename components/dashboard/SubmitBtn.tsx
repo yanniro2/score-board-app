@@ -18,7 +18,7 @@ const SubmitBtn = () => {
   return (
     <button
       type="submit"
-      className="bg-white py-3 px-6 font-semibold text-black  transition absolute top-6 right-6 rounded-xl flex items-center justify-center gap-[1rem] drop-shadow shadow-md m-1 "
+      className="bg-white py-3 px-6 font-semibold text-black  transition absolute top-6 right-6 rounded-xl flex items-center justify-center gap-[1rem] drop-shadow shadow-md m-2 "
       disabled={pending}
       onClick={handleClick}>
       {pending ? (

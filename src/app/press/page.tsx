@@ -1,4 +1,4 @@
-import InputField from "../../../components/InputField";
+import InputField from "../../../components/dashboard/InputField";
 import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/ServerAction";
 import {
@@ -89,37 +89,39 @@ export default async function Page() {
 
           <Layout layouts={layoutOptions} title="layout" />
         </div>
-        <div className="box-2 ">
-          <ShowTime time={jsonData_match.success.match.match_duration} />
+        <div className=" bg-gray-800 p-3 w-1/2 h-full rounded-xl">
+          <div className="bg-gray-900 w-full h-full rounded-xl flex flex-col items-center gap-[1rem]">
+            <ShowTime time={jsonData_match.success.match.match_duration} />
 
-          <div className="flex w-full h-min bg-slate-900  flex-col gap-[1rem] rounded-xl">
-            <TeamNames
-              nameA={jsonData_match.success.match.team_one_name}
-              nameB={jsonData_match.success.match.team_two_name}
-            />
-            <InputField
-              teamA={"team_one_try"}
-              teamB={"team_two_try"}
-              name={"try"}
-            />
+            <div className="flex w-full h-min bg-gray-900  flex-col gap-[1rem] rounded-xl ">
+              <TeamNames
+                nameA={jsonData_match.success.match.team_one_name}
+                nameB={jsonData_match.success.match.team_two_name}
+              />
+              <InputField
+                teamA={"team_one_try"}
+                teamB={"team_two_try"}
+                name={"try"}
+              />
 
-            <InputField
-              teamA={"team_one_conversion"}
-              teamB={"team_two_conversion"}
-              name={"conversion"}
-            />
+              <InputField
+                teamA={"team_one_conversion"}
+                teamB={"team_two_conversion"}
+                name={"conversion"}
+              />
 
-            <InputField
-              teamA={"team_one_penalty"}
-              teamB={"team_two_penalty"}
-              name={"penalty"}
-            />
+              <InputField
+                teamA={"team_one_penalty"}
+                teamB={"team_two_penalty"}
+                name={"penalty"}
+              />
 
-            <InputField
-              teamA={"team_one_goal"}
-              teamB={"team_two_goal"}
-              name={"drop goals"}
-            />
+              <InputField
+                teamA={"team_one_goal"}
+                teamB={"team_two_goal"}
+                name={"drop goals"}
+              />
+            </div>
           </div>
         </div>
         <SubmitBtn />

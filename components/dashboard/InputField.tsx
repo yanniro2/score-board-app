@@ -6,7 +6,7 @@ interface InputFieldProps {
 }
 const InputField: React.FC<InputFieldProps> = ({ teamA, teamB, name }) => {
   return (
-    <div className="box-1 p-3">
+    <div className="box-1">
       <input
         type="number"
         id={teamA}

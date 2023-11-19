@@ -29,9 +29,14 @@
 }
 
 .box-1 {
-  @apply flex items-center justify-between p-3 w-full rounded-xl;
+  @apply flex items-center justify-between p-1 w-full rounded-xl;
 }
 .box-2 {
+  @apply flex items-center justify-between w-1/2 rounded-xl flex-col gap-[1rem];
+}
+
+
+.box-3 {
   @apply flex items-center justify-between w-1/2 rounded-xl flex-col gap-[1rem];
 }
 
