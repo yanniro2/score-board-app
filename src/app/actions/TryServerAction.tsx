@@ -19,9 +19,9 @@ export const handleSubmit = async (e: FormData) => {
 
   const data: tryData_1 = {
     match_id,
-    team_one_goal: team_one_goal || "",
-    team_two_goal: team_two_goal || "",
-    layout: layout || "",
+    team_one_goal: team_one_goal ?? "",
+    team_two_goal: team_two_goal ?? "",
+    layout: layout ?? "",
   };
 
   await fetch("https://scoreboard.yalpos.com/api/score/1", {

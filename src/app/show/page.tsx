@@ -57,9 +57,7 @@ const Page: React.FC = () => {
         team Two Penalty:{data.data.team_two_penalty}
       </div>
       <div className="text-white">team One Goal :{data.data.team_one_goal}</div>
-      <div className="text-white">
-        team Two Goal :{data.data.team_onteam_two_goale_try}
-      </div>
+      <div className="text-white">team Two Goal :{data.data.team_two_goal}</div>
       <div className="text-white">Layout :{data.data.layout}</div>
       <div className="text-white">Change :{data.data.is_change}</div>
       <div className="text-white">Live / Stop :{data.data.is_live}</div>

@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { tryData } from "../../../typings";
 
 export const handleSubmit = async (e: FormData) => {
-  const match_id = "2";
+  const match_id = "1";
   const team_one_try = e.get("team_one_try")?.toString();
   const team_two_try = e.get("team_two_try")?.toString();
   const team_one_conversion = e.get("team_one_conversion")?.toString();
@@ -35,17 +35,17 @@ export const handleSubmit = async (e: FormData) => {
 
   const data: tryData = {
     match_id,
-    team_one_try: team_one_try || "",
-    team_two_try: team_two_try || "",
-    team_one_conversion: team_one_conversion || "",
-    team_two_conversion: team_two_conversion || "",
-    team_one_penalty: team_one_penalty || "",
-    team_two_penalty: team_two_penalty || "",
-    team_one_goal: team_one_goal || "",
-    team_two_goal: team_two_goal || "",
-    layout: layout || "",
-    is_change: is_change || "",
-    is_live: is_live || "",
+    team_one_try: team_one_try ?? "",
+    team_two_try: team_two_try ?? "",
+    team_one_conversion: team_one_conversion ?? "",
+    team_two_conversion: team_two_conversion ?? "",
+    team_one_penalty: team_one_penalty ?? "",
+    team_two_penalty: team_two_penalty ?? "",
+    team_one_goal: team_one_goal ?? "",
+    team_two_goal: team_two_goal ?? "",
+    layout: layout ?? "",
+    is_change: is_change ?? "",
+    is_live: is_live ?? "",
   };
 
   

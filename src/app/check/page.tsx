@@ -1,14 +1,9 @@
-import Radio from "../../../components/Radio";
+// import Radio from "../../../components/Radio";
 
-import ShowField from "../../../components/ShowField";
+// import ShowField from "../../../components/ShowField";
 import { handleSubmit } from "../actions/TryServerAction";
 export default async function page() {
-  const res = await fetch("https://scoreboard.yalpos.com/api/score/1", {
-    cache: "no-cache",
-    next: {
-      tags: ["press"],
-    },
-  });
+  const res = await fetch("https://scoreboard.yalpos.com/api/score/1");
 
   const jsonData = await res.json();
   return (
@@ -40,11 +35,11 @@ export default async function page() {
           Submit
         </button>
       </form>
-      <ShowField
+      {/* <ShowField
         teamA={jsonData.data.team_one_goal}
         teamB={jsonData.data.team_two_goal}
         name={"drop goals"}
-      />
+      /> */}
       <div>{jsonData.data.layout}</div>
     </div>
   );
